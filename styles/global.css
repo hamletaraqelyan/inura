@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--font-cabinet);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-revolve);
+  font-weight: 100;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-dark);
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.column {
+  flex-direction: column;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex.justify-center {
+  justify-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-120 {
+  margin-bottom: var(--spacing-120);
+}
+
+.mb-70 {
+  margin-bottom: var(--spacing-70);
+}
+
+.mb-60 {
+  margin-bottom: var(--spacing-60);
+}
+
+.d-none {
+  display: none;
+}
+
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-default);
+  padding: 1px; /* control the border thickness */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.8) -100%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.8) 200%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .mb-120 {
+    margin-bottom: var(--spacing-50);
+  }
+
+  .mb-60 {
+    margin-bottom: var(--spacing-20);
+  }
+}

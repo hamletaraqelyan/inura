@@ -1,0 +1,265 @@
+@media (max-width: 480px) {
+  /* welcome */
+  .welcome .content {
+    padding-bottom: 30%;
+  }
+
+  .welcome .content h1 {
+    font-size: 54px;
+  }
+
+  .welcome .content p {
+    font-size: 14px;
+    margin-top: 90px;
+    margin-bottom: 60px;
+  }
+
+  .welcome .content .button {
+    padding: 5px 5px 5px 20px;
+    gap: 0;
+  }
+
+  .welcome .content .button svg {
+    width: 48px;
+    margin-left: 82px;
+  }
+
+  .welcome #arch {
+    transform-origin: center 30%;
+    transform: scale(0.55);
+  }
+
+  .welcome .sky-content {
+    padding: 60% 0 25%;
+  }
+
+  .welcome .sky-content h2 {
+    font-size: 48px;
+  }
+
+  .welcome .sky-content img {
+    width: 190px;
+  }
+  /* welcome */
+
+  /* download-now */
+  .download-now {
+    padding-bottom: 50%;
+    height: 423vh;
+  }
+
+  .download-now .content {
+    top: 35%;
+  }
+
+  .download-now .content h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .download-now .content p {
+    font-size: 24px;
+  }
+
+  .download-now .content .images {
+    margin-top: 38px;
+    margin-bottom: 0;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .download-now .content .images > div {
+    width: 100%;
+    align-items: center !important;
+  }
+
+  .download-now .content .images > div img {
+    width: 120px;
+    max-width: unset;
+  }
+
+  .download-now .content :is(.images .qrImage, .download-text) {
+    display: none;
+  }
+  /* download-now */
+
+  /* phone-section */
+  .phone-section {
+    flex-direction: column;
+    padding: 60px 38px;
+    background-size: 100%;
+    background-position-y: 25%;
+  }
+
+  .phone-section .swiper-container {
+    width: 185px;
+    height: 389px;
+  }
+
+  .phone-section .mockup {
+    width: 200px;
+    height: 400px;
+    top: 55px;
+    transform: translate(-50%, 0);
+  }
+
+  .phone-section .navigation-swiper {
+    order: 4;
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .phone-section .navigation-swiper ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .phone-section .navigation-swiper ul li {
+    font-size: 0;
+    margin-bottom: 0;
+  }
+
+  .phone-section .navigation-swiper ul li .star {
+    left: -18px;
+  }
+
+  .phone-section .text-block {
+    width: 100%;
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+    background: unset;
+    box-shadow: unset;
+    text-align: center;
+    padding: 0;
+  }
+
+  .phone-section .text-block::before {
+    display: none;
+  }
+
+  .phone-section .text-block h3 {
+    margin-top: 45px;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .phone-section .text-block p {
+    font-size: 14px;
+  }
+  /* phone-section */
+
+  /* statistics */
+  .statistics {
+    padding: 25% 20px;
+    height: 160vh;
+  }
+
+  .statistics h3 {
+    font-size: 48px;
+  }
+
+  .statistics .cards {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin-top: 43px;
+    gap: 60px;
+  }
+
+  .statistics .cards .card {
+    padding: 40px 28px;
+    text-align: center;
+    transform: none !important;
+  }
+
+  .statistics .cards .card h4 {
+    font-size: 56px;
+  }
+
+  .statistics .cards .card h5 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .statistics .cards .card p {
+    font-size: 16px;
+  }
+  /* statistics */
+
+  /* form-block */
+  .form-block {
+    padding: 35% 20px;
+  }
+
+  .form-block::after {
+    width: 100%;
+    background-size: 120%;
+  }
+
+  .form-block h3 {
+    font-size: 48px;
+  }
+
+  .form-block form {
+    width: 100%;
+  }
+
+  .form-block form input,
+  .form-block form textarea {
+    font-size: 16px;
+    padding: 16px;
+    margin-bottom: 18px;
+  }
+
+  .form-block form textarea {
+    height: 110px;
+  }
+
+  .form-block form label {
+    font-size: 12px;
+    padding-bottom: 4px;
+  }
+
+  .form-block form .button {
+    width: 100%;
+    margin: 36px 0 0;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .form-block img {
+    z-index: -10;
+  }
+
+  .form-block img:nth-of-type(1) {
+    left: -10%;
+    top: 35%;
+    width: 22%;
+  }
+
+  .form-block img:nth-of-type(2) {
+    right: -5%;
+    top: -5%;
+    width: 32%;
+  }
+
+  .form-block img:nth-of-type(3) {
+    left: unset;
+    right: 0;
+    bottom: 26%;
+    width: 40%;
+  }
+
+  .form-block img:nth-of-type(4) {
+    display: none;
+  }
+  /* form-block */
+}
+
+@media (max-width: 400px) {
+  .welcome #arch {
+    transform-origin: center 32%;
+    transform: scale(0.5);
+  }
+}

@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Revolve";
+  src: url("Revolve.ttf") format("truetype"), url("Revolve.otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
