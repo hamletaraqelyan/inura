@@ -121,12 +121,12 @@ $(() => {
     }
   }).observe(document.querySelector(".swiper-container"));
 
-  new IntersectionObserver((entries, observer) => {
-    if (entries[0].isIntersecting) {
-      observer.disconnect();
-      $("#statistics").addClass("show-stars");
-    }
-  }).observe(document.querySelector("#statistics .card p"));
+  // new IntersectionObserver((entries, observer) => {
+  //   if (entries[0].isIntersecting) {
+  //     observer.disconnect();
+  //     $("#statistics").addClass("show-stars");
+  //   }
+  // }).observe(document.querySelector("#statistics .card p"));
   //Swiper
 
   //Menu
