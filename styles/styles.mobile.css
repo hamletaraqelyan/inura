@@ -87,8 +87,6 @@
   .phone-section {
     flex-direction: column;
     padding: 60px 38px;
-    background-size: 100%;
-    background-position-y: 25%;
   }
 
   .phone-section .swiper-container {
@@ -147,12 +145,42 @@
   .phone-section .text-block p {
     font-size: 14px;
   }
+
+  .phone-section > .video-globe {
+    display: none;
+  }
+
+  .phone-section .overflow-hidden {
+    display: block;
+    width: 100%;
+    height: 200%;
+    overflow: hidden;
+    position: absolute;
+    top: -65%;
+  }
+
+  .phone-section .video-globe {
+    width: 140%;
+    height: 100%;
+  }
   /* phone-section */
 
   /* statistics */
   .statistics {
     padding: 25% 20px;
     height: 160vh;
+    overflow: hidden;
+  }
+
+  .statistics > img {
+    width: 64px;
+    display: none;
+  }
+
+  .statistics > img:nth-of-type(1),
+  .statistics > img:nth-of-type(3),
+  .statistics > img:nth-of-type(7) {
+    display: block;
   }
 
   .statistics h3 {

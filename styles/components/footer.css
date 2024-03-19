@@ -64,6 +64,18 @@ footer .footer-bottom img {
   width: 16%;
 }
 
+footer .socials {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1.9%;
+  margin-top: 2.5%;
+}
+
+footer .socials img {
+  width: 22px;
+}
+
 @media (max-width: 480px) {
   footer {
     padding: 60px 20px;
@@ -107,5 +119,13 @@ footer .footer-bottom img {
 
   footer .footer-bottom p {
     font-size: 14px;
+  }
+
+  footer .socials {
+    gap: 25px;
+  }
+
+  footer .socials img {
+    width: 24px;
   }
 }

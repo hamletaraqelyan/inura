@@ -3,6 +3,12 @@ $(() => {
   //     $(window).scrollTop(0);
   //   });
 
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isMobile =
+    userAgent.indexOf("android") !== -1 ||
+    userAgent.indexOf("iphone") !== -1 ||
+    userAgent.indexOf("ipad") !== -1;
+
   //Gsap
   gsap.registerPlugin(ScrollTrigger);
 
@@ -44,6 +50,67 @@ $(() => {
       },
       "-=0.5"
     );
+
+  const globeTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#phone-section",
+      scrub: 3,
+      start: "top top",
+      end: "bottom top+=40%",
+    },
+  });
+
+  globeTimeline
+    .to("#video-globe", {
+      y: `${isMobile ? "41%" : "68%"}`,
+      scale: "0.1",
+      duration: 30,
+    })
+    .to(".star-1", {
+      x: `${isMobile ? "-240%" : "-300%"}`,
+      y: `${isMobile ? "415%" : "355%"}`,
+      scale: 1,
+    })
+    .to(".star-2", {
+      x: "-209%",
+      y: "440%",
+      scale: 1,
+    })
+    .to(".star-3", {
+      x: `${isMobile ? "50%" : "195%"}`,
+      y: `${isMobile ? "510%" : "350%"}`,
+      scale: 1,
+    })
+    .to(".star-4", {
+      x: "335%",
+      y: "370%",
+      scale: 1,
+    })
+    .to(".star-5", {
+      x: "-250%",
+      y: "410%",
+      scale: 1,
+    })
+    .to(".star-6", {
+      x: "220%",
+      y: "200%",
+      scale: 1,
+    })
+    .to(".star-7", {
+      x: `${isMobile ? "-200%" : "-25%"}`,
+      y: `${isMobile ? "960%" : "295%"}`,
+      scale: 1,
+    });
+
+  // const globTimeline = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: "#video-globe",
+  //     start: "bottom bottom",
+  //     end: `top bottom`,
+  //     scrub: 2,
+  //     pin: true,
+  //   },
+  // });
   //Gsap
 
   //Swiper
@@ -94,7 +161,7 @@ $(() => {
     // },
     allowTouchMove: false,
     loop: false,
-    // effect: "fade",
+    effect: "fade",
     // fadeEffect: {
     //   crossFade: true,
     // },
@@ -122,10 +189,7 @@ $(() => {
   }).observe(document.querySelector(".swiper-container"));
 
   // new IntersectionObserver((entries, observer) => {
-  //   if (entries[0].isIntersecting) {
-  //     observer.disconnect();
-  //     $("#statistics").addClass("show-stars");
-  //   }
+  //   $("#statistics").toggleClass("show-stars", entries[0].isIntersecting);
   // }).observe(document.querySelector("#statistics .card p"));
   //Swiper
 

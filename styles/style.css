@@ -123,13 +123,19 @@
   position: relative;
 }
 
+.overflow-hidden {
+  display: none;
+}
+
 .phone-section .video-globe {
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 50%;
-  width: 100%;
+  width: 55%;
   height: 100%;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .phone-section .swiper-container {
@@ -138,11 +144,13 @@
   width: 22.5%;
   display: flex;
   border-radius: 35px;
+  position: relative;
+  z-index: 2;
 }
 
 .phone-section .mockup {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -218,7 +226,7 @@
   color: var(--text-white);
   border-radius: var(--border-radius-default);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .phone-section .text-block h3 {
@@ -242,12 +250,14 @@
   flex-direction: column;
   align-items: center;
   height: 116.3vh;
-  background: url("../media/images/statistics/bg.jpeg") no-repeat center/cover;
+  background: url("../media/images/statistics/bg.jpeg") no-repeat bottom/cover;
 }
 
 .statistics h3 {
   font-size: var(--font-size-96);
   color: var(--text-white);
+  position: relative;
+  z-index: 1;
 }
 
 .statistics .cards {
@@ -270,70 +280,60 @@
 
 .statistics > img {
   position: absolute;
-  top: 3%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 11%;
+  left: 47%;
   width: 6%;
   object-fit: contain;
-  transition: transform 2s ease, opacity 2s ease;
-  opacity: 0;
-}
-
-.statistics.show-stars > img {
-  opacity: 0.6;
-  animation: shine 1s linear 2s infinite alternate;
+  animation: shine 2s ease infinite alternate;
+  transform: scale(0);
 }
 
 @keyframes shine {
   0% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
   50% {
     opacity: 1;
   }
   100% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
 
+.statistics > img:nth-of-type(2),
+.statistics > img:nth-of-type(4) {
+  width: 5.5%;
+}
+
 .statistics > img:nth-of-type(1) {
-  transition-delay: 0;
-  animation-delay: 2s;
+  animation-delay: 0;
 }
 
 .statistics > img:nth-of-type(2) {
-  width: 5.5%;
-  transition-delay: 0.3s;
-  animation-delay: 2.3s;
+  animation-delay: 0.3s;
 }
 
 .statistics > img:nth-of-type(3) {
-  transition-delay: 0.6s;
-  animation-delay: 2.6s;
+  animation-delay: 0.6s;
 }
 
 .statistics > img:nth-of-type(4) {
-  transition-delay: 0.9s;
-  animation-delay: 2.9s;
-  width: 5.5%;
+  animation-delay: 0.9s;
 }
 
 .statistics > img:nth-of-type(5) {
-  transition-delay: 1.2s;
-  animation-delay: 3.2s;
+  animation-delay: 1.2s;
 }
 
 .statistics > img:nth-of-type(6) {
-  transition-delay: 1.5s;
-  animation-delay: 3.5s;
+  animation-delay: 1.5s;
 }
 
 .statistics > img:nth-of-type(7) {
-  transition-delay: 1.8s;
-  animation-delay: 3.8s;
+  animation-delay: 1.8s;
 }
 
-.statistics.show-stars > img:nth-of-type(1) {
+/* .statistics.show-stars > img:nth-of-type(1) {
   transform: translate(-350%, 423%);
 }
 
@@ -359,7 +359,7 @@
 
 .statistics.show-stars > img:nth-of-type(7) {
   transform: translate(-80%, 380%);
-}
+} */
 
 .statistics .cards .card:nth-last-of-type(2) {
   transform: translateY(-32%);
@@ -391,8 +391,7 @@
   justify-content: center;
   align-items: flex-start;
   height: 307vh;
-  background: url("../media/images/download-now/sky-bg.jpg") no-repeat
-    center/cover;
+  background: url("../media/images/download-now/sky-bg.jpg") no-repeat top/cover;
   position: relative;
   padding-bottom: 11%;
 }
