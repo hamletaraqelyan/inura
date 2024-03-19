@@ -78,7 +78,9 @@ footer .socials img {
 
 @media (max-width: 480px) {
   footer {
-    padding: 60px 20px;
+    padding: 60px 20px !important;
+    position: relative;
+    z-index: 0;
   }
 
   footer .footer-top {

@@ -173,14 +173,14 @@
   }
 
   .statistics > img {
-    width: 64px;
     display: none;
   }
 
   .statistics > img:nth-of-type(1),
   .statistics > img:nth-of-type(3),
-  .statistics > img:nth-of-type(7) {
+  .statistics > img:nth-of-type(4) {
     display: block;
+    width: 64px;
   }
 
   .statistics h3 {
@@ -283,6 +283,36 @@
     display: none;
   }
   /* form-block */
+
+  /* privacy-policy */
+  .privacy-policy {
+    padding: 30% 20px 6.3%;
+  }
+
+  .privacy-policy :is(h1, h5) {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .privacy-policy h5 {
+    margin-top: 20px;
+  }
+
+  .privacy-policy p,
+  .privacy-policy ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .privacy-policy ul {
+    margin-bottom: 10px;
+    padding-left: 25px;
+  }
+
+  .privacy-policy ul li {
+    margin-bottom: 0;
+  }
+  /* privacy-policy */
 }
 
 @media (max-width: 400px) {
