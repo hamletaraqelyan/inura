@@ -158,6 +158,7 @@
     overflow: hidden;
     position: absolute;
     top: -65%;
+    pointer-events: none;
   }
 
   .phone-section .video-globe {
