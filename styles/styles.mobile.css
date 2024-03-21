@@ -239,7 +239,7 @@
   .form-block form textarea {
     font-size: 16px;
     padding: 16px;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
   }
 
   .form-block form textarea {
@@ -249,6 +249,15 @@
   .form-block form label {
     font-size: 12px;
     padding-bottom: 4px;
+  }
+
+  .form-block form label.error-message {
+    transform: translateY(-14px);
+  }
+
+  .form-block form label.error-message::before {
+    width: 15px;
+    height: 15px;
   }
 
   .form-block form .button {
