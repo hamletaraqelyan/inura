@@ -23,29 +23,38 @@ $(() => {
   });
 
   timeline
-    .to("#arch", {
-      scale: "3",
-      opacity: 1,
+    .to("#welcome-bg", {
+      scale: "5",
+      rotate: "15deg",
     })
+    .to(
+      "#welcome-bg",
+      {
+        opacity: 0,
+      },
+      "-=0.3"
+    )
     .to(
       "#welcome-content",
       {
         opacity: 0,
-        scale: "0.7",
+        scale: "1.5",
         duration: 0.3,
       },
-      "-=0.5"
-    )
-    .to(
-      "#welcome-sky-content",
-      {
-        opacity: 1,
-      },
-      "-=0.27"
+      "-=0.7"
     )
     .to(
       "#welcome-sky-content h2",
       {
+        opacity: 1,
+        scale: 1,
+      },
+      "-=0.27"
+    )
+    .to(
+      "#welcome-sky-content img",
+      {
+        opacity: 1,
         scale: 1,
       },
       "-=0.5"
@@ -62,7 +71,7 @@ $(() => {
 
   globeTimeline
     .to("#video-globe", {
-      y: `${isMobile ? "41%" : "68%"}`,
+      y: `${isMobile ? "38%" : "59%"}`,
       scale: "0.1",
       duration: 30,
     })
@@ -83,46 +92,36 @@ $(() => {
     })
     .to(".star-4", {
       x: `${isMobile ? "-200%" : "335%"}`,
-      y: `${isMobile ? "960%" : "370%"}`,
+      y: `${isMobile ? "1030%" : "370%"}`,
       scale: 1,
     });
-
-  // const globTimeline = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: "#video-globe",
-  //     start: "bottom bottom",
-  //     end: `top bottom`,
-  //     scrub: 2,
-  //     pin: true,
-  //   },
-  // });
   //Gsap
 
   //Swiper
   const textContentData = [
     {
-      title: "Find daly forecast",
-      text: "Lorem ipsum dolor sit amet consectetur. Eget cras tellus nibh in augue pellentesque.",
+      title: "Start your day empowered",
+      text: "Inura helps start your day with clear understanding of how yourstars align today.",
     },
     {
-      title: "Ask question in the chat",
-      text: "Lorem ipsum dolor sit amet consectetur. Eget cras tellus nibh in augue pellentesque.",
+      title: "Real-time connection",
+      text: "Get an answer to any question that troubles you. It is a confusing world out there, a little help can go a long way.",
     },
     {
-      title: "Discover yor natal chart",
-      text: "Lorem ipsum dolor sit amet consectetur. Eget cras tellus nibh in augue pellentesque.",
+      title: "Reveal your cosmic blueprint",
+      text: "Inura creates a personalised and detailed natal chart for you. It also explains what your natal chart might mean for you in easy to understand bitesize pieces.",
     },
     {
-      title: "Analizing your dream",
-      text: "Lorem ipsum dolor sit amet consectetur. Eget cras tellus nibh in augue pellentesque.",
+      title: "Decode the language of dreams",
+      text: "Let Inura explain to you what your dream meant. You won't have to torment yourself with questions and guesses anymore.",
     },
     {
-      title: "Check your compatibility",
-      text: "Lorem ipsum dolor sit amet consectetur. Eget cras tellus nibh in augue pellentesque.",
+      title: "Discover your harmonious bond",
+      text: "Inura helps you understand your relationship's strengths and weaknesses. Help yourself build what you've long dreamed of.",
     },
     {
-      title: "Find out your totem animal",
-      text: "Lorem ipsum dolor sit amet consectetur. Eget cras tellus nibh in augue pellentesque.",
+      title: "Find your spiritual guide",
+      text: "Individuals and tribes have invoked their 'totem' animals in tough times. Discover the wisdom and guidance your totem animal can offer.",
     },
   ];
 
@@ -192,6 +191,12 @@ $(() => {
 
   $("#lets-talk-form").validate({
     errorClass: "error-message",
+    // focusCleanup: true,
+    onfocusout: false,
+    onkeyup: (a) => {
+      $(a).removeClass("error-message");
+      $(a).next(".error-message").remove();
+    },
     rules: {
       name: {
         required: true,

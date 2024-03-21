@@ -60,8 +60,12 @@ footer .footer-bottom p {
   opacity: 0.65;
 }
 
-footer .footer-bottom img {
+footer .footer-bottom a {
   width: 16%;
+}
+
+footer .footer-bottom a img {
+  width: 100%;
 }
 
 footer .socials {
@@ -114,7 +118,7 @@ footer .socials img {
     flex-direction: column-reverse;
   }
 
-  footer .footer-bottom img {
+  footer .footer-bottom a {
     width: 200px;
     margin-bottom: 24px;
   }

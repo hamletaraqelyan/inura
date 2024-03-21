@@ -44,6 +44,7 @@
 
   /* download-now */
   .download-now {
+    padding-top: 30%;
     padding-bottom: 50%;
     height: 423vh;
   }
@@ -196,6 +197,7 @@
   }
 
   .statistics .cards .card {
+    width: 100%;
     padding: 40px 28px;
     text-align: center;
     transform: none !important;

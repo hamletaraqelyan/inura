@@ -71,9 +71,9 @@ input {
   padding: 1px; /* control the border thickness */
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0.8) -100%,
+    rgba(255, 255, 255, 1) -100%,
     rgba(255, 255, 255, 0) 50%,
-    rgba(255, 255, 255, 0.8) 200%
+    rgba(255, 255, 255, 1) 200%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
