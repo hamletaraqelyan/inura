@@ -24,40 +24,40 @@ $(() => {
 
   timeline
     .to("#welcome-bg", {
-      scale: "5",
-      rotate: "15deg",
+      scale: "1.1",
+      maskImage: "radial-gradient(circle, transparent 100%, #fff)",
+      duration: 3,
+      scrub: 3,
     })
-    .to(
-      "#welcome-bg",
-      {
-        opacity: 0,
-      },
-      "-=0.3"
-    )
     .to(
       "#welcome-content",
       {
         opacity: 0,
-        scale: "1.5",
-        duration: 0.3,
+        scale: "1.1",
+        duration: 2.5,
+        scrub: 2.5,
       },
-      "-=0.7"
+      "-=3"
     )
     .to(
       "#welcome-sky-content h2",
       {
         opacity: 1,
         scale: 1,
+        duration: 2.5,
+        scrub: 2.5,
       },
-      "-=0.27"
+      "-=1"
     )
     .to(
       "#welcome-sky-content img",
       {
         opacity: 1,
         scale: 1,
+        duration: 2.5,
+        scrub: 2.5,
       },
-      "-=0.5"
+      "-=2.6"
     );
 
   const globeTimeline = gsap.timeline({

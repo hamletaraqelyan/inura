@@ -28,6 +28,10 @@
   transform: translate(-50%, -50%);
   background: url("../media/images/welcome/bg.png") no-repeat top/ cover;
   z-index: 2;
+  mask-image: radial-gradient(circle, transparent -300%, #fff);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  will-change: transform, mask-image;
 }
 
 .welcome .sky-content {
@@ -45,7 +49,7 @@
 }
 
 .welcome .sky-content h2 {
-  transform: scale(0.7);
+  transform: scale(0.8);
   opacity: 0;
   text-align: center;
   text-transform: uppercase;
@@ -56,7 +60,7 @@
 
 .welcome .sky-content img {
   width: 13.5%;
-  transform: scale(0.7);
+  transform: scale(0.8);
   opacity: 0;
 }
 
@@ -81,7 +85,7 @@
   font-weight: 500;
   line-height: 140%;
   margin-bottom: 8.5%;
-  margin-top: 17%;
+  margin-top: 11%;
 }
 
 .welcome .content .button {
