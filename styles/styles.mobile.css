@@ -87,10 +87,11 @@
   /* phone-section */
   .phone-section {
     flex-direction: column;
-    padding: 60px 38px;
+    padding: 60px 24px;
   }
 
   .phone-section .swiper-container {
+    position: absolute;
     width: 185px;
     height: 389px;
   }
@@ -105,7 +106,7 @@
   .phone-section .navigation-swiper {
     order: 4;
     width: 100%;
-    margin-top: 32px;
+    margin-top: 24px;
   }
 
   .phone-section .navigation-swiper ul {
@@ -125,6 +126,7 @@
 
   .phone-section .text-block {
     width: 100%;
+    margin-top: auto;
     backdrop-filter: unset;
     -webkit-backdrop-filter: unset;
     background: unset;
@@ -139,12 +141,12 @@
 
   .phone-section .text-block h3 {
     margin-top: 45px;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 4px;
   }
 
   .phone-section .text-block p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .phone-section > .video-globe {

@@ -3,6 +3,108 @@ $(() => {
   //     $(window).scrollTop(0);
   //   });
 
+  // const swiper = new Swiper(".swiper-container", {
+  //   // Optional parameters
+  //   direction: "vertical",
+  //   // autoplay: {
+  //   //   delay: 5000,
+  //   //   stopOnLastSlide: true,
+  //   // },
+  //   allowTouchMove: false,
+  //   loop: false,
+  //   effect: "fade",
+  //   // fadeEffect: {
+  //   //   crossFade: true,
+  //   // },
+  // });
+
+  // swiper.on("slideChange", function (el) {
+  //   const index = el.realIndex;
+  //   $(".navigation-swiper li.active").removeClass("active");
+  //   $(`.navigation-swiper li[data-index="${index}"]`).addClass("active");
+  //   changeTextBlockHTML(textContentData[index]);
+  // });
+
+  const updateSliderComponents = (index) => {
+    $(".navigation-swiper li.active").removeClass("active");
+    $(`.navigation-swiper li[data-index="${index}"]`).addClass("active");
+    changeTextBlockHTML(textContentData[index]);
+  };
+
+  const videoComponent = {
+    el: $("#video-slider"),
+    activeIndex: 0,
+    pause: function () {
+      this.el.trigger("pause");
+    },
+    play: function () {
+      this.el.trigger("play");
+    },
+    playFrom: function (startTime) {
+      if (startTime < 0 || startTime > this.el.prop("duration")) {
+        console.error(
+          "Invalid start time. Please provide a value between 0 and",
+          this.el.prop("duration")
+        );
+        return;
+      }
+
+      this.el.prop("currentTime", startTime);
+      this.play();
+    },
+    trackAndCallFunction: function () {
+      this.el.on("timeupdate", () => {
+        const currentTime = this.el.prop("currentTime");
+        if (currentTime >= 0 && currentTime <= 5.749) {
+          if (this.activeIndex !== 0) {
+            this.activeIndex = 0;
+            updateSliderComponents(this.activeIndex);
+          }
+        } else if (currentTime >= 5.75 && currentTime <= 15.749) {
+          if (this.activeIndex !== 1) {
+            this.activeIndex = 1;
+            updateSliderComponents(this.activeIndex);
+          }
+        } else if (currentTime >= 15.75 && currentTime <= 26.849) {
+          if (this.activeIndex !== 2) {
+            this.activeIndex = 2;
+            updateSliderComponents(this.activeIndex);
+          }
+        } else if (currentTime >= 26.85 && currentTime <= 45.39) {
+          if (this.activeIndex !== 3) {
+            this.activeIndex = 3;
+            updateSliderComponents(this.activeIndex);
+          }
+        } else if (currentTime >= 45.4 && currentTime <= 58.709) {
+          if (this.activeIndex !== 4) {
+            this.activeIndex = 4;
+            updateSliderComponents(this.activeIndex);
+          }
+        } else if (currentTime >= 58.71) {
+          if (this.activeIndex !== 5) {
+            this.activeIndex = 5;
+            updateSliderComponents(this.activeIndex);
+          }
+        }
+      });
+    },
+  };
+
+  videoComponent.trackAndCallFunction();
+
+  $(".navigation-swiper li").click(function () {
+    if (!$(this).hasClass("active")) {
+      const seconds = $(this).data("seconds");
+      const index = $(this).data("index");
+
+      $(".navigation-swiper li.active").removeClass("active");
+      $(this).addClass("active");
+
+      changeTextBlockHTML(textContentData[index]);
+      videoComponent.playFrom(seconds);
+    }
+  });
+
   const userAgent = navigator.userAgent.toLowerCase();
   const isMobile =
     userAgent.indexOf("android") !== -1 ||
@@ -16,7 +118,7 @@ $(() => {
     scrollTrigger: {
       trigger: "#welcome",
       start: "bottom bottom",
-      end: `+=${document.querySelector("#welcome").offsetHeight}`,
+      end: `+=${document.querySelector("#welcome").offsetHeight * 3}`,
       scrub: 2,
       pin: true,
     },
@@ -27,7 +129,6 @@ $(() => {
       scale: "1.1",
       maskImage: "radial-gradient(circle, transparent 100%, #fff)",
       duration: 3,
-      scrub: 3,
     })
     .to(
       "#welcome-content",
@@ -35,17 +136,19 @@ $(() => {
         opacity: 0,
         scale: "1.1",
         duration: 2.5,
-        scrub: 2.5,
+        pointerEvents: "all",
       },
       "-=3"
     )
+    .to("#welcome-content", {
+      pointerEvents: "none",
+    })
     .to(
       "#welcome-sky-content h2",
       {
         opacity: 1,
         scale: 1,
         duration: 2.5,
-        scrub: 2.5,
       },
       "-=1"
     )
@@ -55,17 +158,34 @@ $(() => {
         opacity: 1,
         scale: 1,
         duration: 2.5,
-        scrub: 2.5,
       },
       "-=2.6"
+    )
+    .to("#welcome-sky-content", {
+      scale: "1.1",
+      maskImage: "radial-gradient(circle, transparent 100%, #fff)",
+      opacity: 0.5,
+      duration: 3,
+    })
+    .to(
+      "#phone-section",
+      {
+        opacity: "1",
+        scale: "1",
+        duration: 2.5,
+        onStart: () => {
+          videoComponent.play();
+        },
+      },
+      "-=1.5"
     );
 
   const globeTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: "#phone-section",
+      trigger: "#statistics",
       scrub: 3,
-      start: "top top",
-      end: "bottom top+=40%",
+      start: "top bottom",
+      end: "top top+=20%",
     },
   });
 
@@ -127,50 +247,14 @@ $(() => {
 
   const changeTextBlockHTML = ({ title, text }) => {
     const html = `<h3>${title}</h3><p>${text}</p>`;
-    $(".text-block").fadeOut(300, function () {
+    $(".text-block").fadeOut(200, function () {
       // Change the content
       $(".text-block").html(html);
 
       // Fade in the text block with new content
-      $(".text-block").fadeIn(300);
+      $(".text-block").fadeIn(200);
     });
   };
-
-  const swiper = new Swiper(".swiper-container", {
-    // Optional parameters
-    direction: "vertical",
-    // autoplay: {
-    //   delay: 5000,
-    //   stopOnLastSlide: true,
-    // },
-    allowTouchMove: false,
-    loop: false,
-    effect: "fade",
-    // fadeEffect: {
-    //   crossFade: true,
-    // },
-  });
-
-  swiper.on("slideChange", function (el) {
-    const index = el.realIndex;
-    $(".navigation-swiper li.active").removeClass("active");
-    $(`.navigation-swiper li[data-index="${index}"]`).addClass("active");
-    changeTextBlockHTML(textContentData[index]);
-  });
-
-  $(".navigation-swiper li").click(function () {
-    swiper.slideTo($(this).data("index"));
-  });
-
-  new IntersectionObserver((entries, observer) => {
-    if (entries[0].isIntersecting) {
-      observer.disconnect();
-      swiper.params.autoplay.delay = 5000;
-      swiper.params.autoplay.stopOnLastSlide = true;
-      swiper.update();
-      swiper.autoplay.start();
-    }
-  }).observe(document.querySelector(".swiper-container"));
 
   // new IntersectionObserver((entries, observer) => {
   //   $("#statistics").toggleClass("show-stars", entries[0].isIntersecting);
@@ -245,12 +329,14 @@ $(() => {
 
   //scroll to sections
   const scrollTo = (elementId) => {
-    // $("html, body").scrollTop($("#form-section-block").offset().top);
-
-    $("html, body").animate(
-      { scrollTop: $(`#${elementId}`).offset().top },
-      3000
-    );
+    if (elementId === "phone-section") {
+      $("html, body").animate({ scrollTop: $(window).height() * 3 }, 3000);
+    } else {
+      $("html, body").animate(
+        { scrollTop: $(`#${elementId}`).offset().top },
+        3000
+      );
+    }
   };
 
   $(".scrollLink").click(function (event) {
