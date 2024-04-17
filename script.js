@@ -354,4 +354,11 @@ $(() => {
   });
 
   //scroll to sections
+  // const ripples = $("#ripples");
+
+  // ripples.ripples({
+  //   resolution: 256,
+  //   dropRadius: 50,
+  //   perturbance: 0.02,
+  // });
 });

@@ -436,6 +436,113 @@
 }
 /* download-now */
 
+/* ripples-block */
+#ripples {
+  height: 100vh;
+  background: url("../media/images/taro-block/cardTaroBg.jpeg") no-repeat center /
+    cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.color-white {
+  color: #fff;
+}
+
+.box-item {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  width: 19vw;
+}
+
+.flip-box {
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.taro-card-front,
+.taro-card-back {
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  height: 39vw;
+  -ms-transition: transform 3s cubic-bezier(0.7, -0.5, 0.3, 1.8);
+  transition: transform 3s cubic-bezier(0.7, -0.5, 0.3, 1.8);
+  -webkit-transition: transform 3s cubic-bezier(0.7, -0.5, 0.3, 1.8);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.taro-card-front {
+  background: url("../media/images/taro-block/cardTaro.jpeg") no-repeat center /
+    cover;
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .taro-card-front {
+  -ms-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.taro-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: url("../media/images/taro-block/cardTaroBack.jpeg") no-repeat
+    center / cover;
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.flip-box:hover .taro-card-back {
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-box-header {
+  color: var(--text-white-alpha-80);
+  -webkit-perspective: inherit;
+  perspective: inherit;
+  transform: translateZ(60px) scale(0.94);
+  -webkit-transform: translateZ(60px) scale(0.94);
+  -ms-transform: translateZ(60px) scale(0.94);
+  font-size: var(--font-size-32);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ripples-block */
+
 /* form-block */
 .form-block {
   padding: 6.9% 0;
