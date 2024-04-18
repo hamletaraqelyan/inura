@@ -1,29 +1,26 @@
 $(() => {
-  // $(window).on("beforeunload", function () {
-  //     $(window).scrollTop(0);
-  //   });
+  $(window).on("beforeunload", function () {
+    $(window).scrollTop(0);
+  });
 
-  // const swiper = new Swiper(".swiper-container", {
-  //   // Optional parameters
-  //   direction: "vertical",
-  //   // autoplay: {
-  //   //   delay: 5000,
-  //   //   stopOnLastSlide: true,
-  //   // },
-  //   allowTouchMove: false,
-  //   loop: false,
-  //   effect: "fade",
-  //   // fadeEffect: {
-  //   //   crossFade: true,
-  //   // },
-  // });
+  const is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-  // swiper.on("slideChange", function (el) {
-  //   const index = el.realIndex;
-  //   $(".navigation-swiper li.active").removeClass("active");
-  //   $(`.navigation-swiper li[data-index="${index}"]`).addClass("active");
-  //   changeTextBlockHTML(textContentData[index]);
-  // });
+  const videoData = {
+    mobile: {
+      url: "./media/videos/phone-section/bubblе.mov",
+      type: "video/mp4",
+    },
+    desktop: {
+      url: "./media/videos/phone-section/globe.webm",
+      type: "video/webm",
+    },
+  };
+
+  $("#video-globe").html(
+    `<source src="${
+      is_safari ? videoData.mobile.url : videoData.desktop.url
+    }" type="${is_safari ? videoData.mobile.type : videoData.desktop.type}"/>`
+  );
 
   const updateSliderComponents = (index) => {
     $(".navigation-swiper li.active").removeClass("active");
@@ -126,7 +123,8 @@ $(() => {
 
   timeline
     .to("#welcome-bg", {
-      scale: "1.1",
+      scale: "1.2",
+      rotate: "6deg",
       maskImage: "radial-gradient(circle, transparent 100%, #fff)",
       duration: 3,
     })
@@ -182,7 +180,7 @@ $(() => {
 
   const globeTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: "#statistics",
+      trigger: "#circles",
       scrub: 3,
       start: "top bottom",
       end: "top top+=20%",
@@ -191,10 +189,154 @@ $(() => {
 
   globeTimeline
     .to("#video-globe", {
-      y: `${isMobile ? "38%" : "59%"}`,
-      scale: "0.1",
+      y: "100%",
+      scale: 0.7,
       duration: 30,
     })
+    .to("#video-globe", {
+      scale: 1.1,
+      opacity: 0,
+    });
+
+  const cirlcleTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#circles",
+      start: "bottom bottom",
+      end: `+=${document.querySelector("#circles").offsetHeight * 3}`,
+      scrub: 2,
+      pin: true,
+    },
+  });
+
+  cirlcleTimeline
+    .to("#circles", {
+      [!isMobile && "backgroundSize"]: "100%",
+      duration: 0.1,
+    })
+    .to(
+      "#circles .content-block",
+      {
+        opacity: 1,
+        backgroundSize: isMobile ? "85%" : "43%",
+        duration: 0.1,
+      },
+      "-=0.1"
+    )
+    .to(
+      "#circles .content-block h3",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.1,
+      },
+      "-=0.05"
+    )
+    .to("#circles .card.one", {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      y: 0,
+      duration: 0.1,
+    })
+    .to(
+      "#circles .card.two",
+      {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: "-50%",
+        duration: 0.1,
+      },
+      "-=0.05"
+    )
+    .to(
+      "#circles .card.three",
+      {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        duration: 0.1,
+      },
+      "-=0.05"
+    )
+    .to("#circles .card.four", {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      y: "-50%",
+      duration: 0.1,
+    })
+    .to("#circles .card.one", {
+      opacity: 0,
+      scale: 0.3,
+      x: isMobile ? "10%" : "-30%",
+      y: isMobile ? "180%" : "150%",
+      duration: 0.1,
+    })
+    .to(
+      "#circles .card.two",
+      {
+        opacity: 0,
+        scale: 0.3,
+        x: isMobile ? "-10%" : "-70%",
+        y: isMobile ? "0" : "-60%",
+        duration: 0.1,
+      },
+      "-=0.05"
+    )
+    .to(
+      "#circles .card.three",
+      {
+        opacity: 0,
+        scale: 0.3,
+        x: isMobile ? "5%" : "30%",
+        y: isMobile ? "-85%" : "-150%",
+        duration: 0.1,
+      },
+      "-=0.05"
+    )
+    .to("#circles .card.four", {
+      opacity: 0,
+      scale: 0.3,
+      x: isMobile ? "0%" : "70%",
+      y: isMobile ? "-260%" : "-60%",
+      duration: 0.1,
+    })
+    .to("#circles .content-block h3", {
+      opacity: 0,
+      scale: 0.7,
+      duration: 0.1,
+    })
+    .to(
+      "#circles .content-block",
+      {
+        opacity: 0,
+        backgroundSize: "30%",
+        duration: 0.1,
+      },
+      "-=0.05"
+    )
+    .to(
+      "#circles .logo",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.1,
+      },
+      "-=0.08"
+    );
+
+  const stars = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#statistics",
+      scrub: 3,
+      start: "top center",
+      end: "top top",
+    },
+  });
+
+  stars
     .to(".star-1", {
       x: `${isMobile ? "-240%" : "-300%"}`,
       y: `${isMobile ? "415%" : "355%"}`,
