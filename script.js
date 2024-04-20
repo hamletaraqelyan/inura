@@ -115,7 +115,7 @@ $(() => {
     scrollTrigger: {
       trigger: "#welcome",
       start: "bottom bottom",
-      end: `+=${document.querySelector("#welcome").offsetHeight * 3}`,
+      end: `+=${document.querySelector("#welcome").offsetHeight * 4}`,
       scrub: 2,
       pin: true,
     },
@@ -124,7 +124,7 @@ $(() => {
   timeline
     .to("#welcome-bg", {
       scale: "1.2",
-      rotate: "6deg",
+      rotate: "5deg",
       maskImage: "radial-gradient(circle, transparent 100%, #fff)",
       duration: 3,
     })
@@ -166,10 +166,137 @@ $(() => {
       duration: 3,
     })
     .to(
+      "#circles",
+      {
+        [!isMobile && "backgroundSize"]: "100%",
+        duration: 3,
+      },
+      "-=1.5"
+    )
+    .to(
+      "#circles .content-block",
+      {
+        opacity: 1,
+        backgroundSize: isMobile ? "85%" : "43%",
+        duration: 3,
+      },
+      "-=3"
+    )
+    .to(
+      "#circles .content-block h3",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 3,
+      },
+      "-=1.5"
+    )
+    .to("#circles .card.one", {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      y: 0,
+      duration: 3,
+    })
+    .to(
+      "#circles .card.two",
+      {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: "-50%",
+        duration: 3,
+      },
+      "-=1.5"
+    )
+    .to(
+      "#circles .card.three",
+      {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        duration: 3,
+      },
+      "-=1.5"
+    )
+    .to("#circles .card.four", {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      y: "-50%",
+      duration: 3,
+    })
+    .to("#circles .card.one", {
+      opacity: 0,
+      scale: 0.3,
+      x: isMobile ? "10%" : "-30%",
+      y: isMobile ? "180%" : "150%",
+      duration: 3,
+    })
+    .to(
+      "#circles .card.two",
+      {
+        opacity: 0,
+        scale: 0.3,
+        x: isMobile ? "-10%" : "-70%",
+        y: isMobile ? "0" : "-60%",
+        duration: 3,
+      },
+      "-=1.5"
+    )
+    .to(
+      "#circles .card.three",
+      {
+        opacity: 0,
+        scale: 0.3,
+        x: isMobile ? "5%" : "30%",
+        y: isMobile ? "-85%" : "-150%",
+        duration: 3,
+      },
+      "-=1.5"
+    )
+    .to("#circles .card.four", {
+      opacity: 0,
+      scale: 0.3,
+      x: isMobile ? "0%" : "70%",
+      y: isMobile ? "-260%" : "-60%",
+      duration: 3,
+    })
+    .to("#circles .content-block h3", {
+      opacity: 0,
+      scale: 0.7,
+      duration: 3,
+    })
+    .to(
+      "#circles .content-block",
+      {
+        opacity: 0,
+        backgroundSize: "30%",
+        duration: 3,
+      },
+      "-=1.5"
+    )
+    .to(
+      "#circles .logo",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 3,
+      },
+      "-=2.5"
+    )
+    .to("#circles", {
+      scale: "1.1",
+      maskImage: "radial-gradient(circle, transparent 100%, #fff)",
+      opacity: 0.5,
+      duration: 3,
+    })
+    .to(
       "#phone-section",
       {
         opacity: "1",
-        scale: "1",
+        scale: "1.05",
         duration: 2.5,
         onStart: () => {
           videoComponent.play();
@@ -180,152 +307,29 @@ $(() => {
 
   const globeTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: "#circles",
+      trigger: "#statistics",
       scrub: 3,
       start: "top bottom",
       end: "top top+=20%",
     },
   });
 
-  globeTimeline
-    .to("#video-globe", {
-      y: "100%",
-      scale: 0.7,
-      duration: 30,
-    })
-    .to("#video-globe", {
-      scale: 1.1,
-      opacity: 0,
-    });
+  // globeTimeline
+  //   .to("#video-globe", {
+  //     y: "100%",
+  //     scale: 0.7,
+  //     duration: 30,
+  //   })
+  //   .to("#video-globe", {
+  //     scale: 1.1,
+  //     opacity: 0,
+  //   });
 
-  const cirlcleTimeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#circles",
-      start: "bottom bottom",
-      end: `+=${document.querySelector("#circles").offsetHeight * 3}`,
-      scrub: 2,
-      pin: true,
-    },
+  globeTimeline.to("#video-globe", {
+    y: "57%",
+    scale: "0.1",
+    duration: 30,
   });
-
-  cirlcleTimeline
-    .to("#circles", {
-      [!isMobile && "backgroundSize"]: "100%",
-      duration: 0.1,
-    })
-    .to(
-      "#circles .content-block",
-      {
-        opacity: 1,
-        backgroundSize: isMobile ? "85%" : "43%",
-        duration: 0.1,
-      },
-      "-=0.1"
-    )
-    .to(
-      "#circles .content-block h3",
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.1,
-      },
-      "-=0.05"
-    )
-    .to("#circles .card.one", {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      y: 0,
-      duration: 0.1,
-    })
-    .to(
-      "#circles .card.two",
-      {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: "-50%",
-        duration: 0.1,
-      },
-      "-=0.05"
-    )
-    .to(
-      "#circles .card.three",
-      {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: 0,
-        duration: 0.1,
-      },
-      "-=0.05"
-    )
-    .to("#circles .card.four", {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      y: "-50%",
-      duration: 0.1,
-    })
-    .to("#circles .card.one", {
-      opacity: 0,
-      scale: 0.3,
-      x: isMobile ? "10%" : "-30%",
-      y: isMobile ? "180%" : "150%",
-      duration: 0.1,
-    })
-    .to(
-      "#circles .card.two",
-      {
-        opacity: 0,
-        scale: 0.3,
-        x: isMobile ? "-10%" : "-70%",
-        y: isMobile ? "0" : "-60%",
-        duration: 0.1,
-      },
-      "-=0.05"
-    )
-    .to(
-      "#circles .card.three",
-      {
-        opacity: 0,
-        scale: 0.3,
-        x: isMobile ? "5%" : "30%",
-        y: isMobile ? "-85%" : "-150%",
-        duration: 0.1,
-      },
-      "-=0.05"
-    )
-    .to("#circles .card.four", {
-      opacity: 0,
-      scale: 0.3,
-      x: isMobile ? "0%" : "70%",
-      y: isMobile ? "-260%" : "-60%",
-      duration: 0.1,
-    })
-    .to("#circles .content-block h3", {
-      opacity: 0,
-      scale: 0.7,
-      duration: 0.1,
-    })
-    .to(
-      "#circles .content-block",
-      {
-        opacity: 0,
-        backgroundSize: "30%",
-        duration: 0.1,
-      },
-      "-=0.05"
-    )
-    .to(
-      "#circles .logo",
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.1,
-      },
-      "-=0.08"
-    );
 
   const stars = gsap.timeline({
     scrollTrigger: {
@@ -472,7 +476,7 @@ $(() => {
   //scroll to sections
   const scrollTo = (elementId) => {
     if (elementId === "phone-section") {
-      $("html, body").animate({ scrollTop: $(window).height() * 3 }, 3000);
+      $("html, body").animate({ scrollTop: $(window).height() * 4 }, 3000);
     } else {
       $("html, body").animate(
         { scrollTop: $(`#${elementId}`).offset().top },
