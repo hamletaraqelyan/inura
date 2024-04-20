@@ -24,10 +24,8 @@ $(() => {
 
   $("#video-globe").html(
     `<source src="${
-      is_safari || isMobile ? videoData.mobile.url : videoData.desktop.url
-    }" type="${
-      is_safari || isMobile ? videoData.mobile.type : videoData.desktop.type
-    }"/>`
+      is_safari ? videoData.mobile.url : videoData.desktop.url
+    }" type="${is_safari ? videoData.mobile.type : videoData.desktop.type}"/>`
   );
 
   const updateSliderComponents = (index) => {
