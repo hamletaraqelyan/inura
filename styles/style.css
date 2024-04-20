@@ -797,6 +797,12 @@
 }
 /* privacy-policy */
 
+.overflow-hidden-mobile {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
 /* circles-block */
 #circles {
   height: 100vh;

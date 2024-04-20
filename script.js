@@ -111,6 +111,8 @@ $(() => {
   //Gsap
   gsap.registerPlugin(ScrollTrigger);
 
+  // let hasScrolledOnce = false;
+
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: "#welcome",
@@ -118,7 +120,25 @@ $(() => {
       end: `+=${document.querySelector("#welcome").offsetHeight * 4}`,
       scrub: 2,
       pin: true,
+      onUpdate: (self) => {
+        // Check if the scroll position reaches the end of the pinned section
+        if (self.direction === 1 && self.progress === 1) {
+          // If the user hasn't scrolled once, prevent further scrolling
+          if (!hasScrolledOnce) {
+            self.scrollTrigger.disable(); // Disable the ScrollTrigger
+            hasScrolledOnce = true; // Set the flag to true
+          }
+        }
+      },
     },
+  });
+
+  window.addEventListener("scroll", () => {
+    if (hasScrolledOnce) {
+      // If the user has scrolled once, re-enable the ScrollTrigger
+      ScrollTrigger.refresh(); // Refresh ScrollTrigger to re-enable
+      hasScrolledOnce = false; // Reset the flag
+    }
   });
 
   timeline
