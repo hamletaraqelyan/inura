@@ -316,7 +316,7 @@ $(() => {
       "#phone-section",
       {
         opacity: "1",
-        scale: "1.05",
+        scale: "1",
         duration: 2.5,
         onStart: () => {
           videoComponent.play();
