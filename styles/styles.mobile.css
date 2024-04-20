@@ -94,12 +94,13 @@
     position: absolute;
     width: 185px;
     height: 389px;
+    top: 21%;
   }
 
   .phone-section .mockup {
     width: 200px;
     height: 400px;
-    top: 55px;
+    top: 20%;
     transform: translate(-50%, 0);
   }
 

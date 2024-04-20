@@ -163,6 +163,7 @@
   height: 100%;
   transform: translate(-50%, -50%);
   pointer-events: none;
+  will-change: transform;
 }
 
 .phone-section .video-globe .mobileVideo {

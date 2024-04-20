@@ -3,6 +3,12 @@ $(() => {
     $(window).scrollTop(0);
   });
 
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isMobile =
+    userAgent.indexOf("android") !== -1 ||
+    userAgent.indexOf("iphone") !== -1 ||
+    userAgent.indexOf("ipad") !== -1;
+
   const is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
   const videoData = {
@@ -18,8 +24,10 @@ $(() => {
 
   $("#video-globe").html(
     `<source src="${
-      is_safari ? videoData.mobile.url : videoData.desktop.url
-    }" type="${is_safari ? videoData.mobile.type : videoData.desktop.type}"/>`
+      is_safari || isMobile ? videoData.mobile.url : videoData.desktop.url
+    }" type="${
+      is_safari || isMobile ? videoData.mobile.type : videoData.desktop.type
+    }"/>`
   );
 
   const updateSliderComponents = (index) => {
@@ -102,12 +110,6 @@ $(() => {
     }
   });
 
-  const userAgent = navigator.userAgent.toLowerCase();
-  const isMobile =
-    userAgent.indexOf("android") !== -1 ||
-    userAgent.indexOf("iphone") !== -1 ||
-    userAgent.indexOf("ipad") !== -1;
-
   //Gsap
   gsap.registerPlugin(ScrollTrigger);
 
@@ -117,28 +119,12 @@ $(() => {
     scrollTrigger: {
       trigger: "#welcome",
       start: "bottom bottom",
-      end: `+=${document.querySelector("#welcome").offsetHeight * 4}`,
+      end: `+=${
+        document.querySelector("#welcome").offsetHeight * (isMobile ? 5 : 4)
+      }`,
       scrub: 2,
       pin: true,
-      onUpdate: (self) => {
-        // Check if the scroll position reaches the end of the pinned section
-        if (self.direction === 1 && self.progress === 1) {
-          // If the user hasn't scrolled once, prevent further scrolling
-          if (!hasScrolledOnce) {
-            self.scrollTrigger.disable(); // Disable the ScrollTrigger
-            hasScrolledOnce = true; // Set the flag to true
-          }
-        }
-      },
     },
-  });
-
-  window.addEventListener("scroll", () => {
-    if (hasScrolledOnce) {
-      // If the user has scrolled once, re-enable the ScrollTrigger
-      ScrollTrigger.refresh(); // Refresh ScrollTrigger to re-enable
-      hasScrolledOnce = false; // Reset the flag
-    }
   });
 
   timeline
@@ -317,12 +303,12 @@ $(() => {
       {
         opacity: "1",
         scale: "1",
-        duration: 2.5,
+        duration: 5,
         onStart: () => {
           videoComponent.play();
         },
       },
-      "-=1.5"
+      "-=1.2"
     );
 
   const globeTimeline = gsap.timeline({
@@ -473,7 +459,6 @@ $(() => {
             formData[$(this).attr("name")] = $(this).val();
           }
         });
-
       //   const url = "https://whatmoneyapi.azurewebsites.net/api/Document";
 
       //   $.ajax({
