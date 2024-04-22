@@ -9,8 +9,6 @@ $(() => {
 
   const isAndroid = () => /Android/i.test(navigator.userAgent);
 
-  alert(isAndroid());
-
   function isDesktopSize() {
     const width = $(window).width();
     const minWidth = 1024;
