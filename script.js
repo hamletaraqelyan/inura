@@ -53,7 +53,7 @@ $(() => {
     $("#video-globe").html(
       `<source src="${videoData.mobile.url}" type="${videoData.mobile.type}"/>`
     );
-    $("#video-globe").play();
+    $("#video-globe")[0].play();
   } else {
     $("#video-globe").html(
       `<source src="${
