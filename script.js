@@ -7,6 +7,10 @@ $(() => {
     );
   }
 
+  const isAndroid = () => /Android/i.test(navigator.userAgent);
+
+  alert(isAndroid());
+
   function isDesktopSize() {
     const width = $(window).width();
     const minWidth = 1024;
@@ -26,7 +30,11 @@ $(() => {
 
   if (!isDesktopSize()) {
     $("#video-globe").html(
-      `<source src="${videoData.mobile.url}" type="${videoData.mobile.type}"/>`
+      `<source src="${
+        isAndroid() ? videoData.desktop.url : videoData.mobile.url
+      }" type="${
+        isAndroid() ? videoData.desktop.type : videoData.mobile.type
+      }"/>`
     );
     $("#video-globe")[0].play();
   } else {
