@@ -11,6 +11,33 @@ $(() => {
 
   const is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
+  function isMacBook() {
+    var userAgent = navigator.userAgent.toLowerCase();
+    if (
+      userAgent.indexOf("macintosh") !== -1 &&
+      userAgent.indexOf("intel mac os x") !== -1
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Function to detect if the screen size corresponds to a desktop
+  function isDesktopSize() {
+    var width = $(window).width();
+
+    // Define desktop width threshold (adjust as needed)
+    var minWidth = 1024;
+
+    if (width > minWidth) {
+      // Detected desktop size
+      return true;
+    }
+    // Not a desktop size
+    return false;
+  }
+
   const videoData = {
     mobile: {
       url: "./media/videos/phone-section/bubblе.mov",
@@ -22,11 +49,20 @@ $(() => {
     },
   };
 
-  $("#video-globe").html(
-    `<source src="${
-      is_safari ? videoData.mobile.url : videoData.desktop.url
-    }" type="${is_safari ? videoData.mobile.type : videoData.desktop.type}"/>`
-  );
+  if (!isDesktopSize()) {
+    $("#video-globe").html(
+      `<source src="${videoData.mobile.url}" type="${videoData.mobile.type}"/>`
+    );
+    $("#video-globe").play();
+  } else {
+    $("#video-globe").html(
+      `<source src="${
+        isMacBook() ? videoData.mobile.url : videoData.desktop.url
+      }" type="${
+        isMacBook() ? videoData.mobile.type : videoData.desktop.type
+      }"/>`
+    );
+  }
 
   const updateSliderComponents = (index) => {
     $(".navigation-swiper li.active").removeClass("active");
@@ -289,25 +325,51 @@ $(() => {
         duration: 3,
       },
       "-=2.5"
-    )
-    .to("#circles", {
-      scale: "1.1",
-      maskImage: "radial-gradient(circle, transparent 100%, #fff)",
-      opacity: 0.5,
-      duration: 3,
-    })
-    .to(
-      "#phone-section",
-      {
-        opacity: "1",
-        scale: "1",
-        duration: 5,
-        onStart: () => {
-          videoComponent.play();
-        },
-      },
-      "-=1.2"
     );
+  // .to("#circles", {
+  //   scale: "1.1",
+  //   maskImage: "radial-gradient(circle, transparent 100%, #fff)",
+  //   opacity: 0.5,
+  //   duration: 3,
+  // });
+  // .to(
+  //   "#phone-section",
+  //   {
+  //     opacity: "0.9",
+  //     scale: "0.975",
+  //     duration: 5,
+  //     onStart: () => {
+  //       videoComponent.play();
+  //     },
+  //   },
+  //   "-=1.2"
+  // )
+  // .to("#phone-section", {
+  //   opacity: "1",
+  //   scale: "1",
+  //   duration: 5,
+  // });
+  // .to("body", {
+  //   overflow: "hidden",
+  //   onStart: () => {
+  //     videoComponent.play();
+  //   },
+  // });
+  // let scrollDesibled = false;
+
+  // function handleScroll() {
+  //   if (scrollDesibled) {
+  //     $("body").css("overflow", "auto");
+  //     $(window).off("scroll", handleScroll);
+  //   }
+
+  //   if ($(window).scrollTop() >= $(window).height() * 4) {
+  //     $("body").css("overflow", "hidden");
+  //     scrollDesibled = true;
+  //   }
+  // }
+
+  // $(window).on("scroll", handleScroll);
 
   const globeTimeline = gsap.timeline({
     scrollTrigger: {
