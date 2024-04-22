@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
   transform: translate(-50%, -50%);
-  background: url("../media/images/welcome/bg.png") no-repeat top/ cover;
+  background: url("../media/images/welcome/bg_small.png") no-repeat top/ cover;
   z-index: 2;
   mask-image: radial-gradient(circle, transparent -300%, #fff);
   mask-size: contain;
@@ -36,7 +36,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("../media/images/welcome/skyBg.jpeg") no-repeat center / cover;
+  background: url("../media/images/welcome/clouds.jpeg") no-repeat center /
+    cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +136,7 @@
   background: linear-gradient(
     180deg,
     rgba(15, 12, 29, 1) 0%,
-    rgba(2, 3, 8, 1) 100%
+    rgb(14 9 27) 100%
   );
   display: flex;
   justify-content: space-between;
@@ -275,7 +276,8 @@
   flex-direction: column;
   align-items: center;
   height: 116.3vh;
-  background: url("../media/images/statistics/bg.jpeg") no-repeat bottom/cover;
+  background: url("../media/images/statistics/statisctisBg.jpeg") no-repeat
+    bottom/cover;
 }
 
 .statistics h3 {
@@ -377,7 +379,8 @@
   justify-content: center;
   align-items: flex-start;
   height: 307vh;
-  background: url("../media/images/download-now/sky-bg.jpg") no-repeat top/cover;
+  background: url("../media/images/download-now/downloadBg.jpeg") no-repeat
+    top/cover;
   position: relative;
   padding-bottom: 11%;
 }
@@ -563,7 +566,7 @@
   width: 80%;
   height: 100%;
   transform: translateX(-50%);
-  background: url("../media/images/lets-talk/violetBg.png") no-repeat center/80%;
+  background: url("../media/images/lets-talk/formBg.png") no-repeat center/80%;
   z-index: -1;
 }
 
@@ -804,7 +807,7 @@
 /* circles-block */
 #circles {
   height: 100vh;
-  background: url("../media/images/circles/circleBg.jpeg") no-repeat center /
+  background: url("../media/images/circles/starsBg.jpeg") no-repeat center /
     150%;
   box-shadow: inset 0 50px 50px #020308, inset 0 -50px 50px #020308;
   position: absolute;
@@ -825,7 +828,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../media/images/circles/circle_star.png") no-repeat center /
+  background: url("../media/images/circles/circlesStars.png") no-repeat center /
     30%;
   opacity: 0;
   display: flex;
