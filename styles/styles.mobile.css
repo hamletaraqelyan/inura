@@ -344,8 +344,8 @@
   }
 
   #circles .logo {
-    width: 75%;
-    transform: translate(-50%, -50%) scale(0.5);
+    background-size: 75%;
+    transform: scale(0.5);
   }
 
   #circles .card:nth-of-type(1) {
