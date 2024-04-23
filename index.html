@@ -62,7 +62,9 @@
   </head>
   <body>
     <header>
-      <img src="./media/images/logo.svg" alt="header icon logo" lazy />
+      <a class="scrollLink headerLogo" data-section="welcome" href="#">
+        <img src="./media/images/logo.svg" alt="header icon logo" lazy />
+      </a>
       <nav>
         <a class="scrollLink" data-section="phone-section" href="#"
           >How it works</a
@@ -179,7 +181,7 @@
                 Uncover the mysteries of your future on this <br />
                 fascinating journey into the mystical!
               </p>
-              <button class="button scrollLink" data-section="download-now">
+              <button class="button scrollLink" data-section="circles">
                 Get Started
                 <svg
                   width="48"
@@ -994,7 +996,9 @@
 
     <footer>
       <div class="footer-top header">
-        <img src="./media/images/logo.svg" alt="header icon logo" lazy />
+        <a class="scrollLink" data-section="welcome-footer" href="#">
+          <img src="./media/images/logo.svg" alt="header icon logo" lazy />
+        </a>
         <div class="footer-seperator mobile"></div>
         <nav>
           <a class="scrollLink" data-section="phone-section" href="#"
@@ -1070,6 +1074,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <!-- <script defer src="./libs/jquery.ripples-min.js"></script> -->
 
+    <script src="./app/helpers.js"></script>
     <script src="./app/scrolling/script.js"></script>
     <script async src="./app/formSubmit/script.js"></script>
     <script src="./script.js"></script>

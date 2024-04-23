@@ -133,9 +133,7 @@ $(() => {
     scrollTrigger: {
       trigger: "#welcome",
       start: "bottom bottom",
-      end: `+=${
-        document.querySelector("#welcome").offsetHeight * (isMobile ? 4 : 3)
-      }`,
+      end: `+=${document.querySelector("#welcome").offsetHeight * 8}`,
       scrub: 2,
       pin: true,
     },
@@ -356,10 +354,18 @@ $(() => {
   //     opacity: 0,
   //   });
 
+  const videoScrollSize = () => {
+    if (!isDesktopSize()) {
+      return isAndroid() ? "9%" : "57%";
+    } else {
+      return isMacBook() ? "57%" : "9%";
+    }
+  };
+
   globeTimeline.to("#video-globe", {
-    y: "57%",
+    y: videoScrollSize(),
     scale: "0.1",
-    duration: 30,
+    duration: 10,
     onStart: () => {
       videoComponent.play();
     },

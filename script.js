@@ -1,20 +1,4 @@
 $(() => {
-  function isMacBook() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    return (
-      userAgent.indexOf("macintosh") !== -1 &&
-      userAgent.indexOf("intel mac os x") !== -1
-    );
-  }
-
-  const isAndroid = () => /Android/i.test(navigator.userAgent);
-
-  function isDesktopSize() {
-    const width = $(window).width();
-    const minWidth = 1024;
-    return width > minWidth;
-  }
-
   const videoData = {
     mobile: {
       url: "./media/videos/phone-section/bubblе.mov",
@@ -59,12 +43,19 @@ $(() => {
 
   //scroll to sections
   const scrollTo = (elementId) => {
-    if (elementId === "phone-section") {
-      $("html, body").animate({ scrollTop: $(window).height() * 4 }, 3000);
+    if (elementId === "welcome-footer") {
+      $("html, body").animate({ scrollTop: 0 }, 8000);
+    } else if (elementId === "welcome") {
+      $("html, body").animate({ scrollTop: 0 }, 4000);
+    } else if (elementId === "circles") {
+      $("html, body").animate(
+        { scrollTop: $(window).height() * (!isDesktopSize() ? 5.2 : 4.6) },
+        4000
+      );
     } else {
       $("html, body").animate(
         { scrollTop: $(`#${elementId}`).offset().top },
-        3000
+        4000
       );
     }
   };
