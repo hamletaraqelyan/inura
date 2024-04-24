@@ -48,10 +48,11 @@ $(() => {
     } else if (elementId === "welcome") {
       $("html, body").animate({ scrollTop: 0 }, 4000);
     } else if (elementId === "circles") {
-      $("html, body").animate(
-        { scrollTop: $(window).height() * (!isDesktopSize() ? 5.2 : 4.6) },
-        4000
-      );
+      const topPosition = $(window).height() * (!isDesktopSize() ? 5.2 : 4.6);
+      $(window).scrollTop(topPosition);
+    } else if (elementId === "download-now") {
+      const topPosition = $(`#${elementId}`).offset().top;
+      $(window).scrollTop(topPosition);
     } else {
       $("html, body").animate(
         { scrollTop: $(`#${elementId}`).offset().top },
@@ -73,6 +74,5 @@ $(() => {
       scrollTo($(this).data("section"));
     }
   });
-
   //scroll to sections
 });

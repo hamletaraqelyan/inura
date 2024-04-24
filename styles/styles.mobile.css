@@ -1,7 +1,8 @@
 @media (max-width: 480px) {
   /* welcome */
   .welcome .content {
-    padding-bottom: 30%;
+    width: 80%;
+    top: 33vh;
   }
 
   .welcome .content h1 {
