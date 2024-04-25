@@ -325,6 +325,9 @@ $(() => {
         opacity: 1,
         scale: 1,
         duration: 10,
+        onComplete: () => {
+          videoComponent.play();
+        },
       },
       "-=2.5"
     );
@@ -350,9 +353,6 @@ $(() => {
     y: videoScrollSize(),
     scale: "0.1",
     duration: 10,
-    onStart: () => {
-      videoComponent.play();
-    },
   });
 
   const stars = gsap.timeline({
