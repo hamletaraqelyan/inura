@@ -144,7 +144,7 @@
   .phone-section .slide-change-buttons button {
     font-size: 0;
     transition: scale 0.2s ease;
-    opacity: 0.8;
+    opacity: 0.6;
   }
 
   .phone-section .slide-change-buttons button:active {
