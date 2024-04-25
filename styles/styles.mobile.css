@@ -11,7 +11,7 @@
 
   .welcome .content p {
     font-size: 14px;
-    margin-top: 90px;
+    margin-top: 30vw;
     margin-bottom: 60px;
   }
 
@@ -22,6 +22,7 @@
 
   .welcome .content .button svg {
     width: 48px;
+    height: 48px;
     margin-left: 82px;
   }
 
@@ -125,6 +126,36 @@
 
   .phone-section .navigation-swiper ul li .star {
     left: -18px;
+  }
+
+  .phone-section .slide-change-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    position: absolute;
+    z-index: 2;
+    top: 40%;
+  }
+
+  .phone-section .slide-change-buttons #playPrevChapter {
+    transform: rotateY(180deg);
+  }
+
+  .phone-section .slide-change-buttons button {
+    font-size: 0;
+    transition: scale 0.2s ease;
+    opacity: 0.8;
+    mix-blend-mode: difference;
+  }
+
+  .phone-section .slide-change-buttons button:active {
+    scale: 0.9;
+  }
+
+  .phone-section .slide-change-buttons img {
+    width: 36px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px 0px var(--text-white-alpha-40);
   }
 
   .phone-section .text-block {

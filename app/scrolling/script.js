@@ -9,78 +9,97 @@ $(() => {
   const videoComponent = {
     el: $("#video-slider"),
     activeIndex: 0,
+    chapters: [
+      {
+        index: 0,
+        start: 0,
+        end: 5.749,
+      },
+      {
+        index: 1,
+        start: 5.75,
+        end: 15.749,
+      },
+      {
+        index: 2,
+        start: 15.75,
+        end: 26.849,
+      },
+      {
+        index: 3,
+        start: 26.85,
+        end: 45.39,
+      },
+      {
+        index: 4,
+        start: 45.4,
+        end: 58.709,
+      },
+      {
+        index: 5,
+        start: 58.71,
+        end: 67,
+      },
+    ],
     pause: function () {
       this.el.trigger("pause");
     },
     play: function () {
       this.el.trigger("play");
     },
-    playFrom: function (startTime) {
-      if (startTime < 0 || startTime > this.el.prop("duration")) {
-        console.error(
-          "Invalid start time. Please provide a value between 0 and",
-          this.el.prop("duration")
-        );
-        return;
-      }
-
-      this.el.prop("currentTime", startTime);
+    playNextChapter: function () {
+      const nextIndex =
+        this.activeIndex === this.chapters.length - 1
+          ? 0
+          : this.activeIndex + 1;
+      this.playFrom(nextIndex);
+    },
+    playPrevChapter: function () {
+      const prevIndex =
+        this.activeIndex === 0
+          ? this.chapters.length - 1
+          : this.activeIndex - 1;
+      this.playFrom(prevIndex);
+    },
+    replay: function () {
+      this.activeIndex = 0;
+      updateSliderComponents(0);
+    },
+    playFrom: function (currentIndex) {
+      this.el.prop("currentTime", this.chapters[currentIndex].start);
+      this.activeIndex = currentIndex;
+      updateSliderComponents(currentIndex);
       this.play();
     },
-    trackAndCallFunction: function () {
+    trackAndUpdate: function () {
       this.el.on("timeupdate", () => {
         const currentTime = this.el.prop("currentTime");
-        if (currentTime >= 0 && currentTime <= 5.749) {
-          if (this.activeIndex !== 0) {
-            this.activeIndex = 0;
-            updateSliderComponents(this.activeIndex);
-          }
-        } else if (currentTime >= 5.75 && currentTime <= 15.749) {
-          if (this.activeIndex !== 1) {
-            this.activeIndex = 1;
-            updateSliderComponents(this.activeIndex);
-          }
-        } else if (currentTime >= 15.75 && currentTime <= 26.849) {
-          if (this.activeIndex !== 2) {
-            this.activeIndex = 2;
-            updateSliderComponents(this.activeIndex);
-          }
-        } else if (currentTime >= 26.85 && currentTime <= 45.39) {
-          if (this.activeIndex !== 3) {
-            this.activeIndex = 3;
-            updateSliderComponents(this.activeIndex);
-          }
-        } else if (currentTime >= 45.4 && currentTime <= 58.709) {
-          if (this.activeIndex !== 4) {
-            this.activeIndex = 4;
-            updateSliderComponents(this.activeIndex);
-          }
-        } else if (currentTime >= 58.71) {
-          if (this.activeIndex !== 5) {
-            this.activeIndex = 5;
-            updateSliderComponents(this.activeIndex);
+        const currentPeriod = this.chapters[this.activeIndex];
+
+        if (currentTime >= currentPeriod.end) {
+          if (!this.chapters[this.activeIndex + 1]) {
+            this.replay();
+          } else {
+            this.playNextChapter();
           }
         }
       });
     },
   };
 
-  videoComponent.trackAndCallFunction();
+  videoComponent.trackAndUpdate();
 
   $(".navigation-swiper li").click(function () {
     if (!$(this).hasClass("active")) {
-      const seconds = $(this).data("seconds");
       const index = $(this).data("index");
 
       $(".navigation-swiper li.active").removeClass("active");
       $(this).addClass("active");
-
       changeTextBlockHTML(textContentData[index]);
-      videoComponent.playFrom(seconds);
+      videoComponent.playFrom(index);
     }
   });
 
-  //Swiper
   const textContentData = [
     {
       title: "Start your day empowered",
@@ -111,13 +130,18 @@ $(() => {
   const changeTextBlockHTML = ({ title, text }) => {
     const html = `<h3>${title}</h3><p>${text}</p>`;
     $(".text-block").fadeOut(200, function () {
-      // Change the content
       $(".text-block").html(html);
-
-      // Fade in the text block with new content
       $(".text-block").fadeIn(200);
     });
   };
+
+  $("#playPrevChapter").click(() => {
+    videoComponent.playPrevChapter();
+  });
+
+  $("#playNextChapter").click(() => {
+    videoComponent.playNextChapter();
+  });
   //Video component
 
   //Scroll functionality
@@ -134,7 +158,7 @@ $(() => {
       trigger: "#welcome",
       start: "bottom bottom",
       end: `+=${document.querySelector("#welcome").offsetHeight * 8}`,
-      scrub: 2,
+      scrub: 3,
       pin: true,
     },
   });
@@ -300,39 +324,10 @@ $(() => {
       {
         opacity: 1,
         scale: 1,
-        duration: 3,
+        duration: 10,
       },
       "-=2.5"
     );
-  // .to("#circles", {
-  //   scale: "1.1",
-  //   maskImage: "radial-gradient(circle, transparent 100%, #fff)",
-  //   opacity: 0.5,
-  //   duration: 3,
-  // });
-  // .to(
-  //   "#phone-section",
-  //   {
-  //     opacity: "0.9",
-  //     scale: "0.975",
-  //     duration: 5,
-  //     onStart: () => {
-  //       videoComponent.play();
-  //     },
-  //   },
-  //   "-=1.2"
-  // )
-  // .to("#phone-section", {
-  //   opacity: "1",
-  //   scale: "1",
-  //   duration: 5,
-  // });
-  // .to("body", {
-  //   overflow: "hidden",
-  //   onStart: () => {
-  //     videoComponent.play();
-  //   },
-  // });
 
   const globeTimeline = gsap.timeline({
     scrollTrigger: {
@@ -342,17 +337,6 @@ $(() => {
       end: "top top+=20%",
     },
   });
-
-  // globeTimeline
-  //   .to("#video-globe", {
-  //     y: "100%",
-  //     scale: 0.7,
-  //     duration: 30,
-  //   })
-  //   .to("#video-globe", {
-  //     scale: 1.1,
-  //     opacity: 0,
-  //   });
 
   const videoScrollSize = () => {
     if (!isDesktopSize()) {

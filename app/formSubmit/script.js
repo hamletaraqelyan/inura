@@ -1,7 +1,7 @@
 $(() => {
-  $(window).on("beforeunload", function () {
-    $(window).scrollTop(0);
-  });
+  // $(window).on("beforeunload", function () {
+  //   $(window).scrollTop(0);
+  // });
 
   $("#lets-talk-form").validate({
     errorClass: "error-message",
