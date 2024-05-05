@@ -508,13 +508,14 @@
 .download-now .content .images > div {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 23.3%;
+  align-items: center;
+  width: 30%;
 }
 
 .download-now .content .images > div img {
   max-width: 100%;
   object-fit: contain;
+  height: 100%;
 }
 
 .download-now .content .images > div .qrImage {
@@ -526,9 +527,9 @@
   width: 80%;
 }
 
-.download-now .content .images > div:last-of-type {
+/* .download-now .content .images > div:last-of-type {
   align-items: flex-start;
-}
+} */
 /* download-now */
 
 /* ripples-block */
