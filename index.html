@@ -35,6 +35,17 @@
     <meta name="twitter:image" content="" />
     <!-- Twitter Meta Tags -->
 
+    <!-- Components external styles -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+    <!-- Components external styles -->
+
     <!-- Fonts -->
     <link rel="stylesheet" href="./media/fonts/cabinetGrotesk/style.css" />
     <link rel="stylesheet" href="./media/fonts/revolve/stylesheet.css" />
@@ -46,6 +57,7 @@
     <link rel="stylesheet" href="./styles/variables.css" />
     <link rel="stylesheet" href="./styles/global.css" />
 
+    <link rel="stylesheet" href="./styles/components/popup.css" />
     <link rel="stylesheet" href="./styles/components/header.css" />
     <link rel="stylesheet" href="./styles/components/buttons.css" />
     <link rel="stylesheet" href="./styles/components/footer.css" />
@@ -63,7 +75,7 @@
   <body>
     <header>
       <a class="scrollLink headerLogo" data-section="welcome" href="#">
-        <img src="./media/images/logo.svg" alt="header icon logo" lazy />
+        <img src="./media/images/logo.svg" alt="header icon logo" />
       </a>
       <nav>
         <a class="scrollLink" data-section="phone-section" href="#"
@@ -140,30 +152,26 @@
               >
             </li>
           </ul>
-          <img lazy src="./media/images/logo.svg" alt="menu icon logo" />
+          <img src="./media/images/logo.svg" alt="menu icon logo" />
           <img
             class="star"
             src="./media/images/statistics/1.png"
             alt="Star 1"
-            lazy
           />
           <img
             class="star"
             src="./media/images/statistics/2.png"
             alt="Star 2"
-            lazy
           />
           <img
             class="star"
             src="./media/images/statistics/1.png"
             alt="Star 3"
-            lazy
           />
           <img
             class="star"
             src="./media/images/statistics/4.png"
             alt="Star 4"
-            lazy
           />
         </div>
       </div>
@@ -211,11 +219,87 @@
               </button>
             </div>
             <div class="sky-content" id="welcome-sky-content">
-              <h2>
-                "Stars <br />whisper fate's <br />
-                secrets."
-              </h2>
-              <img src="./media/images/welcome/logo.svg" alt="Inura Logo" />
+              <h2>Our Astronomical schools</h2>
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card1.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card2.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card3.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card4.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card5.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card6.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card7.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card8.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card9.jpeg);
+                      "
+                    ></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      style="
+                        background-image: url(./media/images/slider/card10.jpeg);
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <div class="swiper-prev"></div>
+                <div class="swiper-next"></div>
+              </div>
+              <h3>
+                Inura combines <br />all 10 schools of <br />
+                astrology
+              </h3>
             </div>
           </div>
 
@@ -236,7 +320,7 @@
                 <img
                   src="./media/images/circles/icon1.svg"
                   alt="Daily Predictions icon"
-                  lazy
+                  loading="lazy"
                 />
               </div>
               <div class="card two border-gradient purple">
@@ -248,7 +332,7 @@
                 <img
                   src="./media/images/circles/icon2.svg"
                   alt="Dream Book icon"
-                  lazy
+                  loading="lazy"
                 />
               </div>
               <div class="card three border-gradient purple">
@@ -261,7 +345,7 @@
                 <img
                   src="./media/images/circles/icon3.svg"
                   alt="Compatibility icon"
-                  lazy
+                  loading="lazy"
                 />
               </div>
               <div class="card four border-gradient purple">
@@ -284,7 +368,7 @@
         <section class="phone-section" id="phone-section">
           <div class="navigation-swiper">
             <ul>
-              <li class="active" data-seconds="0" data-index="0">
+              <li class="active" data-index="0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -373,7 +457,8 @@
                 </svg>
                 Personal Prediction
               </li>
-              <li data-seconds="5.75" data-index="1">
+
+              <li data-index="1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -462,7 +547,8 @@
                 </svg>
                 Chat
               </li>
-              <li data-seconds="15.75" data-index="2">
+
+              <li data-index="2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -551,7 +637,7 @@
                 </svg>
                 Natal Chart
               </li>
-              <li data-seconds="26.85" data-index="3">
+              <li data-index="3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -640,7 +726,8 @@
                 </svg>
                 Dream Book
               </li>
-              <li data-seconds="45.4" data-index="4">
+
+              <li data-index="4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -729,7 +816,8 @@
                 </svg>
                 Your Compatibility
               </li>
-              <li data-seconds="58.71" data-index="5">
+
+              <li data-index="5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -838,7 +926,7 @@
 
           <div class="mockup"></div>
 
-          <div class="swiper-container">
+          <div class="video-slider-container">
             <video
               id="video-slider"
               class="video-slider"
@@ -903,25 +991,25 @@
             src="./media/images/statistics/1.png"
             alt="Star 1"
             class="star-1"
-            lazy
+            loading="lazy"
           />
           <img
             src="./media/images/statistics/2.png"
             alt="Star 2"
             class="star-2"
-            lazy
+            loading="lazy"
           />
           <img
             src="./media/images/statistics/1.png"
             alt="Star 3"
             class="star-3"
-            lazy
+            loading="lazy"
           />
           <img
             src="./media/images/statistics/4.png"
             alt="Star 4"
             class="star-4"
-            lazy
+            loading="lazy"
           />
         </section>
       </span>
@@ -938,26 +1026,26 @@
               <img
                 src="./media/images/download-now/google-play.svg"
                 alt="Google play logo"
-                lazy
+                loading="lazy"
               />
               <img
                 class="qrImage"
                 src="./media/images/download-now/google-qr.svg"
                 alt="Google play qr"
-                lazy
+                loading="lazy"
               />
             </div>
             <div>
               <img
                 src="./media/images/download-now/app-store.svg"
                 alt="App store logo"
-                lazy
+                loading="lazy"
               />
               <img
                 class="qrImage"
                 src="./media/images/download-now/apple-qr.svg"
                 alt="App store qr"
-                lazy
+                loading="lazy"
               />
             </div>
           </div>
@@ -999,17 +1087,37 @@
 
           <button type="submit" class="button">Send message</button>
         </form>
-        <img src="./media/images/lets-talk/ast1.png" alt="Asteroid" lazy />
-        <img src="./media/images/lets-talk/ast2.png" alt="Asteroid" lazy />
-        <img src="./media/images/lets-talk/ast3.png" alt="Asteroid" lazy />
-        <img src="./media/images/lets-talk/ast4.png" alt="Asteroid" lazy />
+        <img
+          src="./media/images/lets-talk/ast1.png"
+          alt="Asteroid"
+          loading="lazy"
+        />
+        <img
+          src="./media/images/lets-talk/ast2.png"
+          alt="Asteroid"
+          loading="lazy"
+        />
+        <img
+          src="./media/images/lets-talk/ast3.png"
+          alt="Asteroid"
+          loading="lazy"
+        />
+        <img
+          src="./media/images/lets-talk/ast4.png"
+          alt="Asteroid"
+          loading="lazy"
+        />
       </section>
     </main>
 
     <footer>
       <div class="footer-top header">
         <a class="scrollLink" data-section="welcome-footer" href="#">
-          <img src="./media/images/logo.svg" alt="header icon logo" lazy />
+          <img
+            src="./media/images/logo.svg"
+            alt="header icon logo"
+            loading="lazy"
+          />
         </a>
         <div class="footer-seperator mobile"></div>
         <nav>
@@ -1075,18 +1183,51 @@
       <div class="footer-bottom">
         <p>© 2024 Inura. All rights reserved</p>
         <a href="https://www.improvs.com" target="_blank">
-          <img src="./media/icons/improvs.png" alt="" />
+          <img src="./media/icons/improvs.png" alt="" loading="lazy" />
         </a>
       </div>
     </footer>
 
+    <div id="card-details-popup" class="card-details-popup">
+      <div class="card-details-content">
+        <div class="sections">
+          <ul class="navigation">
+            <li data-index="0" class="navigation-item">I</li>
+            <li data-index="1" class="navigation-item">II</li>
+            <li data-index="2" class="navigation-item">III</li>
+            <li data-index="3" class="navigation-item">IV</li>
+            <li data-index="4" class="navigation-item">V</li>
+            <li data-index="5" class="navigation-item">VI</li>
+            <li data-index="6" class="navigation-item">VII</li>
+            <li data-index="7" class="navigation-item">VIII</li>
+            <li data-index="8" class="navigation-item">IX</li>
+            <li data-index="9" class="navigation-item">X</li>
+          </ul>
+          <div class="card-text">
+            <div class="cardImage">
+              <img src="" alt="popup image" />
+            </div>
+            <div class="cardText">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <!-- <script defer src="./libs/jquery.ripples-min.js"></script> -->
 
     <script src="./app/helpers.js"></script>
+    <script src="./app/cardsSlider/script.js"></script>
     <script src="./app/scrolling/script.js"></script>
     <script async src="./app/formSubmit/script.js"></script>
     <script src="./script.js"></script>

@@ -87,6 +87,10 @@ $(() => {
     },
   };
 
+  videoComponent.play();
+  setTimeout(() => {
+    videoComponent.pause();
+  }, 500);
   videoComponent.trackAndUpdate();
 
   $(".navigation-swiper li").click(function () {
@@ -183,6 +187,9 @@ $(() => {
     .to("#welcome-content", {
       pointerEvents: "none",
     })
+    .to("#welcome-sky-content", {
+      pointerEvents: "all",
+    })
     .to(
       "#welcome-sky-content h2",
       {
@@ -193,19 +200,47 @@ $(() => {
       "-=1"
     )
     .to(
-      "#welcome-sky-content img",
+      "#welcome-sky-content .swiper-container",
       {
         opacity: 1,
         scale: 1,
+        y: 0,
         duration: 2.5,
       },
       "-=2.6"
+    )
+    .to("#welcome-sky-content h2", {
+      opacity: 0,
+      y: "-100%",
+      scale: 0.8,
+      duration: 2,
+    })
+    .to(
+      "#welcome-sky-content .swiper-container",
+      {
+        opacity: 0.4,
+        scale: 0.95,
+        y: "-200%",
+        duration: 6,
+      },
+      "-=0.5"
+    )
+    .to(
+      "#welcome-sky-content h3",
+      {
+        y: "-50%",
+        duration: 3,
+      },
+      "-=6"
     )
     .to("#welcome-sky-content", {
       scale: "1.1",
       maskImage: "radial-gradient(circle, transparent 100%, #fff)",
       opacity: 0.5,
       duration: 3,
+    })
+    .to("#welcome-sky-content", {
+      pointerEvents: "none",
     })
     .to(
       "#circles",

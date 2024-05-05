@@ -1,0 +1,194 @@
+.jquery-modal {
+  z-index: 100;
+  background-color: rgba(9, 9, 9, 0.5);
+}
+
+.card-details-popup {
+  max-width: unset;
+  width: 93%;
+  height: 95%;
+  display: none;
+  padding: var(--spacing-24);
+  background-color: #0e0a1b;
+  border-radius: var(--border-radius-small);
+}
+
+.card-details-content {
+  border: 1px solid #786878;
+  border-radius: var(--border-radius-xsmall);
+  background: url("../../media/images/welcome/cloudsStars.jpeg") no-repeat
+    center / cover;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-details-content .sections {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.card-details-content .sections .navigation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-15);
+  width: 7.5%;
+  position: relative;
+  z-index: 1;
+}
+
+.card-details-content .sections .navigation .navigation-item {
+  font-family: var(--font-revolve);
+  background-color: var(--text-white-alpha-20);
+  padding: var(--spacing-10) 0 var(--spacing-10) var(--spacing-40);
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  color: var(--text-white-alpha-60);
+  font-size: var(--font-size-36);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-details-content .sections .navigation .navigation-item:hover {
+  background-color: var(--text-white-alpha-40);
+  cursor: pointer;
+}
+
+.card-details-content .sections .navigation .navigation-item.active {
+  background-color: #ecd0d2;
+  box-shadow: 6px 6px 25.4px 0px rgba(255, 255, 255, 0.25);
+  color: var(--text-black);
+}
+
+.card-details-content .sections .card-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(0deg, #0e0a1b 0%, rgba(14, 10, 27, 0) 100%);
+}
+
+.card-details-content .sections .card-text {
+  width: 92.5%;
+  display: flex;
+  height: 100%;
+  padding-block: 3%;
+  padding-left: 6.5%;
+}
+
+.card-details-content .sections .card-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(0deg, #0e0a1b 0%, rgba(14, 10, 27, 0) 100%);
+  pointer-events: none;
+  touch-action: none;
+}
+
+.card-details-content .sections .card-text .cardImage {
+  position: relative;
+  z-index: 1;
+  width: 32%;
+}
+
+.card-details-content .sections .card-text .cardText {
+  width: 67%;
+  margin-right: 1%;
+  padding-inline: 5% 6%;
+  overflow: auto;
+  scrollbar-color: white transparent;
+}
+
+.card-details-content .sections .card-text img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--border-radius-default);
+}
+
+.card-details-content .sections .card-text h3 {
+  font-size: var(--font-size-80);
+  margin-bottom: var(--spacing-20);
+  color: var(--text-white);
+}
+
+.card-details-content .sections .card-text p {
+  color: var(--text-white-alpha-80);
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.2px;
+}
+
+.card-details-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.card-details-popup a.close-modal {
+  top: var(--spacing-40);
+  right: var(--spacing-48);
+  background-image: url("../../media/images/slider/closePopup.svg");
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .card-details-popup {
+    width: 100%;
+    padding: var(--spacing-24) var(--spacing-16);
+  }
+
+  .card-details-popup h3 {
+    font-size: var(--font-size-18);
+  }
+
+  .card-details-content .sections .navigation {
+    width: 15%;
+  }
+
+  .card-details-content .sections .navigation .navigation-item {
+    padding-left: 15px;
+    font-size: 18px;
+  }
+
+  .card-details-content .sections .card-text {
+    padding-block: 15%;
+    padding-left: 3%;
+    width: 85%;
+  }
+
+  .card-details-content .sections .card-text h3 {
+    font-size: 25px;
+  }
+
+  .card-details-content .sections .card-text p {
+    font-size: 17px;
+  }
+
+  .card-details-content .sections .card-text .cardImage {
+    display: none;
+  }
+
+  .card-details-content .sections .card-text .cardText {
+    width: 100%;
+  }
+
+  .card-details-popup a.close-modal {
+    right: 30px;
+    top: 35px;
+  }
+}

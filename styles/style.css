@@ -28,18 +28,15 @@
 }
 
 .welcome .sky-content {
-  pointer-events: none;
   opacity: 1;
+  pointer-events: none;
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("../media/images/welcome/cloudsStars.jpeg") no-repeat center /
-    cover;
+  background: url("../media/images/slider/skyBg.jpeg") no-repeat center / cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 13% 0 3.3%;
+  padding-top: 4%;
   z-index: 1;
   mask-image: radial-gradient(circle, transparent -300%, #fff);
   mask-size: contain;
@@ -47,20 +44,108 @@
   will-change: transform, mask-image;
 }
 
-.welcome .sky-content h2 {
+.welcome .sky-content :where(h2, h3) {
   transform: scale(0.8);
   opacity: 0;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 8.3vw;
-  text-shadow: 0px 0px 40px var(--text-white);
+  font-size: var(--font-size-96);
+  text-shadow: 0px 0px 10px var(--text-white);
   color: var(--text-white);
 }
 
-.welcome .sky-content img {
-  width: 13.5%;
-  transform: scale(0.8);
+.welcome .sky-content h3 {
+  font-size: var(--font-size-128);
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 200%);
+}
+
+.swiper-container {
+  width: 100%;
+  height: 50%;
+  transform: translateY(30%) scale(0.85);
   opacity: 0;
+  will-change: transform, opacity;
+}
+
+.swiper-next,
+.swiper-prev {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 32vw;
+  width: 40px;
+  height: 40px;
+  background: url("../media/images/slider/arrowLeft.svg") no-repeat center /
+    contain;
+  transform: translateX(-120%);
+}
+
+.swiper-next {
+  transform: translateX(20%) rotateY(180deg);
+}
+
+.swiper-slide {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 1.5s ease;
+  z-index: 0;
+  user-select: none;
+}
+
+.swiper-slide div {
+  background-image: url(./media/images/slider/card1.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 169%;
+  border-radius: 20px;
+  transform: translateY(60%) scale(0.6);
+  transition: transform 1.5s ease;
+  will-change: transform;
+}
+
+.swiper-slide-active {
+  z-index: 3;
+  cursor: pointer;
+}
+
+.swiper-slide-active div {
+  transform: none;
+}
+
+.swiper-slide-active:hover div {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  z-index: 2;
+}
+
+.swiper-slide-prev div {
+  transform: rotateY(20deg) skew(15deg, -10deg) scale(0.88) translate(-15%, 13%);
+}
+
+.swiper-slide-next div {
+  transform: rotateY(-20deg) skew(-15deg, 10deg) scale(0.88) translate(15%, 13%);
+}
+
+.swiper-slide-next + .swiper-slide,
+.swiper-slide:has(+ .swiper-slide-prev) {
+  z-index: 1;
+}
+
+.swiper-slide-next + .swiper-slide div {
+  transform: rotateX(20deg) rotateY(-25deg) skew(-35deg, 25deg)
+    scale(0.75, 0.65) translate(15%, 35%);
+}
+
+.swiper-slide:has(+ .swiper-slide-prev) div {
+  transform: rotateX(20deg) rotateY(25deg) skew(35deg, -25deg) scale(0.75, 0.65)
+    translate(-15%, 35%);
 }
 
 .welcome .content {
@@ -169,7 +254,7 @@
   display: none;
 }
 
-.phone-section .swiper-container {
+.phone-section .video-slider-container {
   overflow: hidden;
   height: 39.5vw;
   width: 22.5%;
@@ -179,7 +264,7 @@
   z-index: 2;
 }
 
-.phone-section .swiper-container .video-slider {
+.phone-section .video-slider-container .video-slider {
   width: 100%;
   height: 100%;
 }

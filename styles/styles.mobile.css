@@ -32,15 +32,32 @@
   }
 
   .welcome .sky-content {
-    padding: 60% 0 25%;
+    padding-top: 20%;
+  }
+
+  .swiper-container {
+    height: 65%;
+    margin-top: 5%;
+  }
+
+  .swiper-next,
+  .swiper-prev {
+    top: 92%;
+    z-index: 10;
   }
 
   .welcome .sky-content h2 {
     font-size: 48px;
   }
 
-  .welcome .sky-content img {
-    width: 190px;
+  .welcome .sky-content h3 {
+    font-size: 50px;
+    width: 85%;
+    transform: translate(-50%, 275%);
+  }
+
+  .welcome .sky-content h3 br {
+    display: none;
   }
   /* welcome */
 
@@ -93,7 +110,7 @@
     height: 100vh;
   }
 
-  .phone-section .swiper-container {
+  .phone-section .video-slider-container {
     position: absolute;
     width: 185px;
     height: 389px;
