@@ -47,12 +47,12 @@ $(() => {
     play: function () {
       this.el.trigger("play");
     },
-    playNextChapter: function () {
+    playNextChapter: function (onlyContent = false) {
       const nextIndex =
         this.activeIndex === this.chapters.length - 1
           ? 0
           : this.activeIndex + 1;
-      this.playFrom(nextIndex);
+      this.playFrom(nextIndex, onlyContent);
     },
     playPrevChapter: function () {
       const prevIndex =
@@ -65,11 +65,12 @@ $(() => {
       this.activeIndex = 0;
       updateSliderComponents(0);
     },
-    playFrom: function (currentIndex) {
-      this.el.prop("currentTime", this.chapters[currentIndex].start);
+    playFrom: function (currentIndex, onlyContent) {
+      !onlyContent &&
+        this.el.prop("currentTime", this.chapters[currentIndex].start);
       this.activeIndex = currentIndex;
       updateSliderComponents(currentIndex);
-      this.play();
+      !onlyContent && this.play();
     },
     trackAndUpdate: function () {
       this.el.on("timeupdate", () => {
@@ -80,7 +81,7 @@ $(() => {
           if (!this.chapters[this.activeIndex + 1]) {
             this.replay();
           } else {
-            this.playNextChapter();
+            this.playNextChapter(true);
           }
         }
       });
@@ -222,6 +223,9 @@ $(() => {
         scale: 0.95,
         y: "-200%",
         duration: 6,
+        onComplete: () => {
+          videoComponent.play();
+        },
       },
       "-=0.5"
     )
@@ -230,9 +234,6 @@ $(() => {
       {
         y: "-50%",
         duration: 3,
-        onComplete: () => {
-          videoComponent.play();
-        },
       },
       "-=6"
     );

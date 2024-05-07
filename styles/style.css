@@ -38,10 +38,12 @@
   flex-direction: column;
   justify-content: center;
   z-index: 1;
-  mask-image: radial-gradient(circle, transparent -300%, #fff);
+  /* mask-image: radial-gradient(circle, transparent -300%, #fff);
   mask-size: contain;
   mask-repeat: no-repeat;
-  will-change: transform, mask-image;
+  will-change: transform, mask-image; */
+  -webkit-box-shadow: inset 0px -55px 40px -10px #020308;
+  box-shadow: inset 0px -55px 40px -10px #020308;
 }
 
 .welcome .sky-content :where(h2, h3) {
@@ -49,7 +51,7 @@
   opacity: 0;
   text-align: center;
   font-size: var(--font-size-96);
-  text-shadow: 0px 0px 10px var(--text-white);
+  text-shadow: 0px 0px 25px var(--text-white);
   color: var(--text-white);
 }
 
