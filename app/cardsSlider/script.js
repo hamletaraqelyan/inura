@@ -128,12 +128,15 @@ $(() => {
   ];
 
   const updatePopupUI = ({ title, desc, image }) => {
-    const popupImageSection = $("#card-details-popup .card-text img");
+    const popupImageSection = $(
+      "#card-details-popup .card-text .cardImage div"
+    );
     const popupTextSection = $("#card-details-popup .card-text .cardText");
     const textHtml = `<h3>${title}</h3><p>${desc}</p>`;
 
     popupImageSection.fadeOut(200, function () {
-      popupImageSection.attr("src", image);
+      const imageUrl = `url("${image}")`;
+      popupImageSection.css("background-image", imageUrl);
       popupImageSection.fadeIn(200);
     });
 
@@ -168,10 +171,11 @@ $(() => {
     }
   });
 
-  const swiper = new Swiper(".swiper-container", {
+  new Swiper(".swiper-container", {
     slidesPerView: 1.7, // Number of slides per view
     spaceBetween: 10,
     centeredSlides: true,
+    // initialSlide: 2,
     speed: 1500,
     loop: true,
     allowTouchMove: false,
@@ -188,8 +192,10 @@ $(() => {
   });
 
   $(".swiper-slide").click((e) => {
-    if ($(e.currentTarget).hasClass("swiper-slide-active")) {
-      openPopup(swiper.realIndex);
-    }
+    // if ($(e.currentTarget).hasClass("swiper-slide-active")) {
+    //   openPopup(swiper.realIndex);
+    // }
+    const clickedIndex = $(e.currentTarget).data("slider");
+    openPopup(clickedIndex);
   });
 });

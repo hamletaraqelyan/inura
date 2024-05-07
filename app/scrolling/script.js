@@ -230,142 +230,145 @@ $(() => {
       {
         y: "-50%",
         duration: 3,
-      },
-      "-=6"
-    )
-    .to("#welcome-sky-content", {
-      scale: "1.1",
-      maskImage: "radial-gradient(circle, transparent 100%, #fff)",
-      opacity: 0.5,
-      duration: 3,
-    })
-    .to("#welcome-sky-content", {
-      pointerEvents: "none",
-    })
-    .to(
-      "#circles",
-      {
-        [!isMobile && "backgroundSize"]: "100%",
-        duration: 3,
-      },
-      "-=1.5"
-    )
-    .to(
-      "#circles .content-block",
-      {
-        opacity: 1,
-        backgroundSize: isMobile ? "85%" : "43%",
-        duration: 3,
-      },
-      "-=3"
-    )
-    .to(
-      "#circles .content-block h3",
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 3,
-      },
-      "-=1.5"
-    )
-    .to("#circles .card.one", {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      y: 0,
-      duration: 3,
-    })
-    .to(
-      "#circles .card.two",
-      {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: "-50%",
-        duration: 3,
-      },
-      "-=1.5"
-    )
-    .to(
-      "#circles .card.three",
-      {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: 0,
-        duration: 3,
-      },
-      "-=1.5"
-    )
-    .to("#circles .card.four", {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      y: "-50%",
-      duration: 3,
-    })
-    .to("#circles .card.one", {
-      opacity: 0,
-      scale: 0.3,
-      x: isMobile ? "10%" : "-30%",
-      y: isMobile ? "180%" : "150%",
-      duration: 3,
-    })
-    .to(
-      "#circles .card.two",
-      {
-        opacity: 0,
-        scale: 0.3,
-        x: isMobile ? "-10%" : "-70%",
-        y: isMobile ? "0" : "-60%",
-        duration: 3,
-      },
-      "-=1.5"
-    )
-    .to(
-      "#circles .card.three",
-      {
-        opacity: 0,
-        scale: 0.3,
-        x: isMobile ? "5%" : "30%",
-        y: isMobile ? "-85%" : "-150%",
-        duration: 3,
-      },
-      "-=1.5"
-    )
-    .to("#circles .card.four", {
-      opacity: 0,
-      scale: 0.3,
-      x: isMobile ? "0%" : "70%",
-      y: isMobile ? "-260%" : "-60%",
-      duration: 3,
-    })
-    .to("#circles .content-block h3", {
-      opacity: 0,
-      scale: 0.7,
-      duration: 3,
-    })
-    .to(
-      "#circles .content-block",
-      {
-        opacity: 0,
-        backgroundSize: "30%",
-        duration: 3,
-      },
-      "-=1.5"
-    )
-    .to(
-      "#circles .logo",
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 10,
         onComplete: () => {
           videoComponent.play();
         },
       },
-      "-=2.5"
+      "-=6"
     );
+  // .to("#welcome-sky-content", {
+  //   scale: "1.1",
+  //   maskImage: "radial-gradient(circle, transparent 100%, #fff)",
+  //   opacity: 0.5,
+  //   duration: 3,
+  // })
+  // .to("#welcome-sky-content", {
+  //   pointerEvents: "none",
+  // })
+  // .to(
+  //   "#circles",
+  //   {
+  //     [!isMobile && "backgroundSize"]: "100%",
+  //     duration: 3,
+  //   },
+  //   "-=1.5"
+  // )
+  // .to(
+  //   "#circles .content-block",
+  //   {
+  //     opacity: 1,
+  //     backgroundSize: isMobile ? "85%" : "43%",
+  //     duration: 3,
+  //   },
+  //   "-=3"
+  // )
+  // .to(
+  //   "#circles .content-block h3",
+  //   {
+  //     opacity: 1,
+  //     scale: 1,
+  //     duration: 3,
+  //   },
+  //   "-=1.5"
+  // )
+  // .to("#circles .card.one", {
+  //   opacity: 1,
+  //   scale: 1,
+  //   x: 0,
+  //   y: 0,
+  //   duration: 3,
+  // })
+  // .to(
+  //   "#circles .card.two",
+  //   {
+  //     opacity: 1,
+  //     scale: 1,
+  //     x: 0,
+  //     y: "-50%",
+  //     duration: 3,
+  //   },
+  //   "-=1.5"
+  // )
+  // .to(
+  //   "#circles .card.three",
+  //   {
+  //     opacity: 1,
+  //     scale: 1,
+  //     x: 0,
+  //     y: 0,
+  //     duration: 3,
+  //   },
+  //   "-=1.5"
+  // )
+  // .to("#circles .card.four", {
+  //   opacity: 1,
+  //   scale: 1,
+  //   x: 0,
+  //   y: "-50%",
+  //   duration: 3,
+  // })
+  // .to("#circles .card.one", {
+  //   opacity: 0,
+  //   scale: 0.3,
+  //   x: isMobile ? "10%" : "-30%",
+  //   y: isMobile ? "180%" : "150%",
+  //   duration: 3,
+  // })
+  // .to(
+  //   "#circles .card.two",
+  //   {
+  //     opacity: 0,
+  //     scale: 0.3,
+  //     x: isMobile ? "-10%" : "-70%",
+  //     y: isMobile ? "0" : "-60%",
+  //     duration: 3,
+  //   },
+  //   "-=1.5"
+  // )
+  // .to(
+  //   "#circles .card.three",
+  //   {
+  //     opacity: 0,
+  //     scale: 0.3,
+  //     x: isMobile ? "5%" : "30%",
+  //     y: isMobile ? "-85%" : "-150%",
+  //     duration: 3,
+  //   },
+  //   "-=1.5"
+  // )
+  // .to("#circles .card.four", {
+  //   opacity: 0,
+  //   scale: 0.3,
+  //   x: isMobile ? "0%" : "70%",
+  //   y: isMobile ? "-260%" : "-60%",
+  //   duration: 3,
+  // })
+  // .to("#circles .content-block h3", {
+  //   opacity: 0,
+  //   scale: 0.7,
+  //   duration: 3,
+  // })
+  // .to(
+  //   "#circles .content-block",
+  //   {
+  //     opacity: 0,
+  //     backgroundSize: "30%",
+  //     duration: 3,
+  //   },
+  //   "-=1.5"
+  // )
+  // .to(
+  //   "#circles .logo",
+  //   {
+  //     opacity: 1,
+  //     scale: 1,
+  //     duration: 10,
+  //     onComplete: () => {
+  //       videoComponent.play();
+  //     },
+  //   },
+  //   "-=2.5"
+  // );
 
   const globeTimeline = gsap.timeline({
     scrollTrigger: {

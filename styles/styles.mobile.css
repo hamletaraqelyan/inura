@@ -31,18 +31,13 @@
     transform: scale(0.55);
   }
 
-  .welcome .sky-content {
-    padding-top: 20%;
-  }
-
   .swiper-container {
-    height: 65%;
     margin-top: 5%;
   }
 
   .swiper-next,
   .swiper-prev {
-    top: 92%;
+    top: 110%;
     z-index: 10;
   }
 

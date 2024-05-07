@@ -98,6 +98,15 @@
   position: relative;
   z-index: 1;
   width: 32%;
+  display: flex;
+  align-items: center;
+}
+
+.card-details-content .sections .card-text .cardImage div {
+  width: 100%;
+  background: no-repeat center / cover;
+  padding-top: 168%;
+  border-radius: var(--border-radius-default);
 }
 
 .card-details-content .sections .card-text .cardText {
@@ -108,12 +117,8 @@
   scrollbar-color: white transparent;
 }
 
-.card-details-content .sections .card-text img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: var(--border-radius-default);
+.card-details-content .sections .card-text .cardText::-webkit-scrollbar-thumb {
+  background-color: white;
 }
 
 .card-details-content .sections .card-text h3 {

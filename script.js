@@ -48,7 +48,7 @@ $(() => {
     } else if (elementId === "welcome") {
       $("html, body").animate({ scrollTop: 0 }, 4000);
     } else if (elementId === "circles") {
-      const topPosition = $(window).height() * (!isDesktopSize() ? 5.1 : 4.3);
+      const topPosition = $(window).height() * 3.1;
       $(window).scrollTop(topPosition);
     } else if (elementId === "download-now") {
       const topPosition = $(`#${elementId}`).offset().top;
